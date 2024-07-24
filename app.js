@@ -1,38 +1,42 @@
-const express = require("express");
-const session = require("express-session");
-const cookies = require('cookie-parser');
-const path = require("path");
-const methodOverride =  require('method-override');
-const indexRouter=require('./src/routes/index.routes')
-
-
+const express = require('express');
 const app = express();
+const path = require('path');
 
-const userLoggedMid = require('./src/middlewares/userLoggedMid');
+//funcion estatica
+app.use(express.static(path.resolve(__dirname, './public')));
 
-app.use(session({
-    secret: "shhh, It's a secret",
-    resave: false,
-    saveUninitialized:false,
-}));
+//levantar nuestro servidor
+const port= process.env.PORT || 3000;
+app.listen(port,()=>console.log("Servidor corriendo en el puerto" + port));
 
-const port = 3000;
+//app.listen(3000,()=>{
+  //  console.log('servidor corriendo')
+//})
 
-app.use(cookies());
+app.get('/', (req, res)=>{
+    res.sendFile(path.join(__dirname, 'src/views/index.html'))
+})
 
-app.use(userLoggedMid);
+app.get('/servicios', (req, res)=>{
+  res.sendFile(path.join(__dirname, 'src/views/servicios.html'))
+})
 
-app.set("view engine", "ejs");
-app.set("views", path.join(__dirname,'src/views'));
-app.use(express.static(path.join(__dirname, 'public')));
+app.get('/novedades', (req, res)=>{
+  res.sendFile(path.join(__dirname, 'src/views/novedades.html'))
+})
 
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+app.get('/documentos', (req, res)=>{
+  res.sendFile(path.join(__dirname, 'src/views/documentos.html'))
+})
 
-app.use(methodOverride('_method')); 
+app.get('/registro', (req, res)=>{
+  res.sendFile(path.join(__dirname, 'src/views/registro.html'))
+})
 
-app.use('/', indexRouter);
+app.get('/login', (req, res)=>{
+  res.sendFile(path.join(__dirname, 'src/views/login.html'))
+})
 
-app.get("*", (req, res) => res.status(404).send("404 not found. <br> ¡Houston, tenemos un problema!"));
-
-app.listen(port, () => console.log(`Servidor Corriendo en el puerto ${port}`));
+app.get('/ubicacion', (req, res)=>{
+  res.sendFile(path.join(__dirname, 'src/views/ubicacion.html'))
+})

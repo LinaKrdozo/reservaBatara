@@ -1,0 +1,27 @@
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>> RESET <<<<<<<< */
+
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  font-size: 100%;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  list-style-type: none;
+  block-size: fit-content;
+  background-color: #e5e5e5; /* Color de fondo */
+  color: #000000;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}

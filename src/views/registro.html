@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/registro.css"> 
+    <title>Reserva de Batara</title>
+</head>
+<body>
+    <header class="encabezado">
+        <a href="/"><img src="img/logo.png" alt="logo" class="encabezado__logo"></a>
+        <nav class="encabezado__nav">
+            <ul>
+                <li><a href="/" class="encabezado__nav-link">Inicio</a></li>
+                <li><a href="servicios" class="encabezado__nav-link">Servicios</a></li>
+                <li><a href="novedades" class="encabezado__nav-link">Novedades</a></li>
+                <li><a href="documentos" class="encabezado__nav-link">Documentos</a></li>
+                <li><a href="registro" class="encabezado__nav-link">Regístrate</a></li>
+                <li><a href="login" class="encabezado__nav-link"><i class="fa-solid fa-user"></i></a></li>
+                <li><a href="ubicacion" class="encabezado__nav-link"><i class="fa-solid fa-location-dot"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+    <h2 class="formulario__titulo">Formulario de Registro</h2>
+    <section class="formulario">
+        <article class="formulario__contenido">
+            <img src="img/imagenPrueba2.jpg" alt="" class="formulario__imagen">
+        </article>
+        <article class="formulario__contenido">
+            <form action="#" method="POST" enctype="multipart/form-data" class="formulario__form">
+                <div class="formulario__grupo">
+                    <label for="nombre" class="formulario__label">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre" class="formulario__input" placeholder="nombre completo" required>
+                </div>
+                <div class="formulario__grupo">
+                    <label for="correo" class="formulario__label">Correo Electrónico:</label>
+                    <input type="email" id="correo" name="correo" class="formulario__input" placeholder="ejemplo@mail.com" required>
+                </div>
+                <div class="formulario__grupo">
+                    <label for="telefono" class="formulario__label">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" class="formulario__input" placeholder="teléfono" required>
+                </div>
+                <div class="formulario__grupo">
+                    <label for="foto" class="formulario__label">Foto:</label>
+                    <input type="file" id="foto" name="foto" accept="image/*" class="formulario__input" required>
+                </div>
+                <div class="formulario__grupo">
+                    <label for="residente" class="formulario__label">¿Es residente?</label>
+                    <select id="residente" name="residente" class="formulario__input" onchange="toggleApartamento(this)">
+                        <option value="no">No</option>
+                        <option value="si">Sí</option>
+                    </select>
+                </div>
+                <div class="formulario__grupo formulario__grupo--apartamento" id="apartamento-field" style="display: none;">
+                    <label for="apartamento" class="formulario__label">Número de Apartamento:</label>
+                    <input type="text" id="apartamento" name="apartamento" placeholder="numero de apartamento" class="formulario__input">
+                </div>
+                <div class="formulario__grupo">
+                    <label for="contraseña" class="formulario__label">Contraseña:</label>
+                    <div class="contraseña-input">
+                      <input type="password" id="contraseña" name="contraseña" class="formulario__input" placeholder="contraseña" required>
+                      <input type="checkbox" id="showPassword" onchange="togglePasswordVisibility()">
+                      <label for="showPassword">Mostrar contraseña</label>
+                    </div>
+                <button type="submit" class="formulario__boton">Enviar</button>
+                <p class="link-login">¿Ya tienes cuenta? Inicia sesión<a href="#"> acá</a></p>
+            </form>
+        </article>
+    </section>
+
+
+    <footer class="pie">
+        <div class="pie__contenido">
+            <section class="pie__logo">
+                <a href="#">
+                    <img src="/img/logo.png" alt="logo reserva batara" class="pie__logo-imagen">
+                </a>
+            </section>
+            <section class="pie__quienes-somos">
+                <h4 class="pie__titulo">Quiénes somos</h4>
+                <p class="pie__descripcion">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime perferendis dolor impedit culpa earum et eius, quibusdam id porro. Nobis veritatis aperiam optio nulla iure voluptate eveniet hic sint vitae.</p>
+            </section>
+            <section class="pie__redes-sociales">
+                <ul class="pie__lista">
+                    <li class="pie__lista-item">
+                        <a class="pie__lista-enlace" href="https://www.instagram.com/">
+                            <i class="fa-brands fa-instagram"></i>
+                            <span class="pie__lista-texto">Instagram</span>
+                        </a>
+                    </li>
+                    <li class="pie__lista-item">
+                        <a class="pie__lista-enlace" href="https://github.com/DH-Comision-07/grupo_8_digitalBees/tree/main">
+                            <i class="fa-brands fa-github"></i>
+                            <span class="pie__lista-texto">Github</span>
+                        </a>
+                    </li>
+                    <li class="pie__lista-item">
+                        <a class="pie__lista-enlace" href="https://www.youtube.com/">
+                            <i class="fa-brands fa-youtube"></i>
+                            <span class="pie__lista-texto">Youtube</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <section class="pie__copy">
+            <small>Copyright © 2024 reserva de Batara-PH</small>
+        </section>
+    </footer>
+    <script src="js/registro.js"></script> 
+</body>
+</html>

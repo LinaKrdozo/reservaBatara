@@ -1,4 +1,4 @@
- -- DROP DATABASE IF EXISTS `reservaBatara`;
+-- DROP DATABASE IF EXISTS `reservaBatara`;
 -- -----------------------------------------------------
 -- Schema reservaBatara
 -- -----------------------------------------------------
@@ -51,15 +51,14 @@ INSERT INTO `reservaBatara`.`usuarios` (`nombre`, `correo`, `telefono`, `foto`,`
 CREATE TABLE IF NOT EXISTS `reservaBatara`.`salon` (
   `idSalon` INT NOT NULL AUTO_INCREMENT,
   `capacidad` INT NOT NULL,
-  `precio_hora` INT NOT NULL,
   `disponibilidad` INT NOT NULL,
   PRIMARY KEY (`idSalon`))
 ENGINE = InnoDB;
 
-INSERT INTO `reservaBatara`.`salon` (`capacidad`, `precio_hora`, `disponibilidad`) VALUES
-(50, 100, 1),
-(30, 80, 0),
-(20, 60, 1);
+INSERT INTO `reservaBatara`.`salon` (`capacidad`, `disponibilidad`) VALUES
+(70, 1),
+(70, 0),
+(70, 1);
 
 -- -----------------------------------------------------
 -- Table `reservaBatara`.`reserva`
@@ -80,9 +79,9 @@ CREATE TABLE IF NOT EXISTS `reservaBatara`.`reserva` (
 ENGINE = InnoDB;
 
 INSERT INTO `reservaBatara`.`reserva` (`idReserva`, `fecha_reserva`, `descripcion`, `total`, `salon_idSalon`) VALUES
-(1, '2024-07-20', 'Fiesta de cumpleaños', 300, 1),
-(2, '2024-07-21', 'Reunión de trabajo', 200, 2),
-(3, '2024-07-22', 'Taller de cocina', 150, 3);
+(1, '2024-07-20', 'Fiesta de cumpleaños', 150000, 1),
+(2, '2024-07-21', 'Reunión de trabajo', 150000, 2),
+(3, '2024-07-22', 'Taller de cocina', 150000, 3);
 
 -- -----------------------------------------------------
 -- Table `reservaBatara`.`detalle_reserva`
@@ -92,7 +91,6 @@ CREATE TABLE IF NOT EXISTS `reservaBatara`.`detalle_reserva` (
   `cantidad_horas` INT NOT NULL,
   `subtotal` INT NOT NULL,
   `foto_pago` VARCHAR(45) NOT NULL,
-  `tarifa_aseo` INT NOT NULL,
   `deposito` INT NOT NULL,
   `usuarios_idUsuarios` INT NOT NULL,
   `reserva_idReserva` INT NOT NULL,
@@ -111,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `reservaBatara`.`detalle_reserva` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `reservaBatara`.`detalle_reserva` (`cantidad_horas`, `subtotal`, `foto_pago`, `tarifa_aseo`, `deposito`, `usuarios_idUsuarios`, `reserva_idReserva`) VALUES
-(3, 300, 'pago1.jpg', 50, 30, 1, 1),
-(2, 160, 'pago2.jpg', 40, 20, 2, 2),
-(1, 150, 'pago3.jpg', 30, 15, 3, 3);
+INSERT INTO `reservaBatara`.`detalle_reserva` (`cantidad_horas`, `subtotal`, `foto_pago`, `deposito`, `usuarios_idUsuarios`, `reserva_idReserva`) VALUES
+(3, 50000, 'pago1.jpg', 100000, 1, 1),
+(2, 50000, 'pago2.jpg', 100000, 2, 2),
+(5, 50000, 'pago3.jpg', 100000, 3, 3);

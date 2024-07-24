@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "nombreServicio": "piscina",
+        "icono":"img/iconos/water-solid.svg",
+        "descripcion":"Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+        "anuncio": false    
+    },
+    {
+        "id": 2,
+        "nombreServicio": "gimnasio",
+        "icono":"img/iconos/heart-pulse-solid.svg",
+        "descripcion":"Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+        "anuncio": false    
+    },
+    {
+        "id": 3,
+        "nombreServicio": "parque_infantil",
+        "icono":"img/iconos/futbol-solid.svg",
+        "descripcion":"Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+        "anuncio": false    
+    },
+    {
+        "id": 4,
+        "nombreServicio": "salon_social",
+        "icono":"img/iconos/users-solid.svg",
+        "descripcion":"Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+        "anuncio": false    
+    },
+    {
+        "id": 5,
+        "nombreServicio": "carrito",
+        "icono":"img/iconos/cart-shopping-solid.svg",
+        "descripcion":"Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+        "anuncio": true    
+    },
+    {
+        "id": 6,
+        "nombreServicio": "parqueaderos",
+        "icono":"img/iconos/car-on-solid.svg",
+        "descripcion":"Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+        "anuncio": true    
+    },
+    {
+        "id": 7,
+        "nombreServicio": "mascotas",
+        "icono":"img/iconos/paw-solid.svg",
+        "descripcion":"Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+        "anuncio": true    
+    }
+
+]
