@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "nombreServicio": "carrito",
+        "claseIcono":"fa-solid fa-cart-shopping",
+        "descripcion":"Lorem ipsum dolor sit, amet consectetur adipisicing elit, Lorem ipsum dolor sit, amet consectetur adipisicing elit., Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+        "anuncio": true    
+    },
+    {
+        "id": 2,
+        "nombreServicio": "parqueaderos",
+        "claseIcono":"fa-solid fa-car-on",
+        "descripcion":"Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+        "anuncio": true    
+    },
+    {
+        "id": 3,
+        "nombreServicio": "mascotas",
+        "claseIcono":"fa-solid fa-paw ",
+        "descripcion":"Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+        "anuncio": true    
+    }
+
+]

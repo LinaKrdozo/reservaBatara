@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+     <!--head partial-->
+     <%- include('./partials/head', {css:'/css/documentos.css'}); %>
+     <!--fin partial-->
+</head>
+<body>
+    <%- include('./partials/header'); %>
+
+    <section class="imagen-principal">
+        <img src="/img/imagenPrueba.jpg" alt="" class="imagen-principal__img">
+    </section>
+
+  <!--CONTENIDO-->
+  <section class="principal__section section--migadepan">
+    <div class="contenedor contenedor--migadepan">
+       <%- include('./partials/migaDePan', {local: 'Documentos'}); %> 
+    </div>
+  </section>
+  <section class="contenido">
+    <h2>Descarga de Documentos</h2>
+    <% documentos.forEach(documento => { %>
+        <%- include('./partials/documento', { documento: documento }); %>
+    <% }); %>
+</section>
+   <%- include('./partials/footer'); %>
+</body>
+</html>

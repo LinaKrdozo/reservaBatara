@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+     <!--head partial-->
+     <%- include('./partials/head', {css:'/css/servicios.css'}); %>
+     <!--fin partial-->
+</head>
+<body>
+    <main>
+      
+    <%- include('./partials/header'); %>
+
+    <section class="imagen-principal">
+        <img src="img/imagenPrueba.jpg" alt="" class="imagen-principal__img">
+    </section>
+    <section class="principal__section section--migadepan">
+      <div class="contenedor contenedor--migadepan">
+         <%- include('./partials/migaDePan', {local: 'Servicios'}); %> 
+      </div>
+    </section>
+  <!--CONTENIDO-->
+  <h3 class="titulo-seccion">Nuestros servicios</h3>
+  <section class="contenedor-servicios">
+    <% servicios.forEach(servicio => { %>
+        <%- include('./partials/servicio', { servicio: servicio }); %>
+    <% }); %>
+</main>
+    <%- include('./partials/footer'); %>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!--head partial-->
+    <%- include('./partials/head', {css:'/css/registro.css'}); %>
+    <!--fin partial-->
+</head>
+<body>
+    <%- include('./partials/header'); %>
+
+        <section class="principal__section section--migadepan">
+            <div class="contenedor contenedor--migadepan">
+               <%- include('./partials/migaDePan', {local: 'Formulario de registro'}); %> 
+            </div>
+          </section>
+    <h2 class="formulario__titulo">Formulario de Registro</h2>
+    <section class="formulario">
+        <article class="formulario__contenido">
+            <img src="img/imagenPrueba2.jpg" alt="" class="formulario__imagen">
+        </article>
+        <article class="formulario__contenido">
+            <form action="#" method="POST" enctype="multipart/form-data" class="formulario__form">
+                <div class="formulario__grupo">
+                    <label for="nombre" class="formulario__label">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre" class="formulario__input" placeholder="nombre completo" required>
+                </div>
+                <div class="formulario__grupo">
+                    <label for="correo" class="formulario__label">Correo Electrónico:</label>
+                    <input type="email" id="correo" name="correo" class="formulario__input" placeholder="ejemplo@mail.com" required>
+                </div>
+                <div class="formulario__grupo">
+                    <label for="telefono" class="formulario__label">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" class="formulario__input" placeholder="teléfono" required>
+                </div>
+                <div class="formulario__grupo">
+                    <label for="foto" class="formulario__label">Foto:</label>
+                    <input type="file" id="foto" name="foto" accept="image/*" class="formulario__input" required>
+                </div>
+                <div class="formulario__grupo">
+                    <label for="residente" class="formulario__label">¿Es residente?</label>
+                    <select id="residente" name="residente" class="formulario__input" onchange="toggleApartamento(this)">
+                        <option value="no">No</option>
+                        <option value="si">Sí</option>
+                    </select>
+                </div>
+                <div class="formulario__grupo formulario__grupo--apartamento" id="apartamento-field" style="display: none;">
+                    <label for="apartamento" class="formulario__label">Número de Apartamento:</label>
+                    <input type="text" id="apartamento" name="apartamento" placeholder="numero de apartamento" class="formulario__input">
+                </div>
+                <div class="formulario__grupo">
+                    <label for="contraseña" class="formulario__label">Contraseña:</label>
+                    <div class="contraseña-input">
+                      <input type="password" id="contraseña" name="contraseña" class="formulario__input" placeholder="contraseña" required>
+                      <input type="checkbox" id="showPassword" onchange="togglePasswordVisibility()">
+                      <label for="showPassword">Mostrar contraseña</label>
+                    </div>
+                <button type="submit" class="formulario__boton">Enviar</button>
+                <p class="link-login">¿Ya tienes cuenta? Inicia sesión<a href="#"> acá</a></p>
+            </form>
+        </article>
+    </section>
+    <%- include('./partials/footer'); %>
+    <script src="js/registro.js"></script> 
+</body>
+</html>

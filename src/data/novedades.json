@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "titulo": "Título Prueba1",
+        "imagen":"img/imagenPrueba3.jpg",
+        "descripcion":"Lorem ipsum dolor sit, amet consectetur adipisicing elit." 
+    },
+    {
+        
+        "id": 2,
+        "titulo": "Título Prueba2",
+        "imagen":"img/imagenPrueba3.jpg",
+        "descripcion":"Lorem ipsum dolor sit, amet consectetur adipisicing elit." 
+    },
+    {
+        
+        "id": 3,
+        "titulo": "Título Prueba3",
+        "imagen":"img/imagenPrueba3.jpg",
+        "descripcion":"Lorem ipsum dolor sit, amet consectetur adipisicing elit." 
+    },
+    {
+        
+        "id": 4,
+        "titulo": "Título Prueba4",
+        "imagen":"img/imagenPrueba3.jpg",
+        "descripcion":"Lorem ipsum dolor sit, amet consectetur adipisicing elit." 
+    }
+
+]

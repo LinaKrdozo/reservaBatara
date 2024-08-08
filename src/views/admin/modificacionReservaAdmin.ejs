@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!--head partial-->
+    <%- include('../partials/head', {css:'/css/creacionReservaAdmin.css'}); %>
+    <!--fin partial-->
+</head>
+<body>
+    <%- include('../partials/header'); %>
+    <section class="principal__section section--migadepan">
+      <div class="contenedor contenedor--migadepan">
+         <%- include('../partials/migaDePan', {local: 'registro reservas'}); %> 
+      </div>
+    </section>
+
+    <h2 class="formulario__titulo">Modificar reserva </h2>
+    <section class="formulario">
+        <article class="formulario__contenido">
+            <form action="/admin/reservas/<%=reserva.id%>?_method=PUT" method="POST" enctype="multipart/form-data" class="formulario__form">
+                <!--<div class="formulario__grupo">
+                    <label for="nombre" class="formulario__label">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre" class="formulario__input" placeholder="nombre completo" required>
+                </div>-->
+                <div class="formulario__grupo">
+                    <label for="fechaReserva" class="formulario__label">Fecha de Reserva:
+                    <input type="date" id="fechaReserva" name="fechaReserva" class="formulario__input" value="<%= reserva.fechaReserva %>" placeholder="dd/mm/aaaa" required>
+                    </label>
+                </div>
+                <div class="formulario__grupo">
+                    <label for="asistentes" class="formulario__label">Cantidad de asistentes:
+                    <input type="text" id="asistentes" name="asistentes" class="formulario__input" value="<%= reserva.asistentes%>" placeholder="1" required>
+                    </label>
+                </div>
+                <div class="formulario__grupo">
+                    <label for="cantidadHoras" class="formulario__label">Cantidad de horas:
+                    <input type="text" id="cantidadHoras" name="cantidadHoras" class="formulario__input" value="<%= reserva.cantidadHoras%>" placeholder="1" required>
+                    </label>
+                </div>
+                <div class="formulario__grupo">
+                    <label for="descripcion" class="formulario__label">Descripcion:
+                    <input type="text" id="descripcion" name="descripcion" class="formulario__input" value="<%= reserva.descripcion%>" placeholder="descripcion" required>
+                    </label>
+                </div>
+                <div class="formulario__grupo">
+                    <label for="disponibilidad" class="formulario__label">Disponibilidad:</label>
+                    <select id="disponibilidad" name="disponibilidad" class="formulario__input" required>
+                        <option value="confirmada" <%= reserva.disponibilidad === 'confirmada' ? 'selected' : '' %>>Confirmada</option>
+                        <option value="pendiente" <%= reserva.disponibilidad === 'pendiente' ? 'selected' : '' %>>Pendiente</option>
+                        <option value="cancelada" <%= reserva.disponibilidad === 'cancelada' ? 'selected' : '' %>>Cancelada</option>
+                    </select>
+                </div>
+                
+                <div class="formulario__grupo" id="fotoPago">
+                    <label for="fotoPago" class="formulario__label">Foto Pago:</label>
+                    <img src="/<%= reserva.fotoPago %>" alt="fotoPago" class="formulario__imagen-previa">
+                    <input type="file" id="fotoPago" name="fotoPago" class="formulario__input">
+                </div>
+                <button type="submit" class="formulario__boton">Modificar Reserva</button>
+            </form>
+        </article>
+        <article class="formulario__contenido">
+            <img src="/img/modificarReserva.png" alt="" class="formulario__imagen">
+        </article>
+    </section>
+    <%- include('../partials/footer'); %>
+   <script src="/js/modificarReserva.js"></script>
+</body>
+</html>

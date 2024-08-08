@@ -1,0 +1,153 @@
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>> RESERVAS <<<<<<<< */
+
+.principal__section.section--reservas {
+    padding: 20px;
+    background-color: #e5e5e5; /* Fondo más claro para un diseño moderno */
+    padding-bottom: 68px;
+}
+
+.principal__titulo-section {
+    font-size: 2rem;
+    color: #14213d; /* Color del texto del título */
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.buttons__page {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Espacio entre botones */
+    margin-bottom: 20px;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.reservas__boton {
+    background-color: #f9a310; /* Color de fondo del botón */
+    color: #ffffff; /* Color del texto del botón */
+    border: none;
+    border-radius: 8px; /* Bordes redondeados para un diseño moderno */
+    padding: 12px 24px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.reservas__boton:hover {
+    background-color: #f9a310; /* Color de fondo del botón al pasar el cursor */
+    color: #ffffff; /* Color del texto al pasar el cursor */
+    transform: scale(1.05); /* Efecto de escala al pasar el cursor */
+}
+
+.reservas__boton.boton--users {
+    background-color: #14213d; /* Color específico para el botón de usuarios */
+}
+
+.reservas__boton.boton--users:hover {
+    background-color: #000000; /* Color de fondo del botón de usuarios al pasar el cursor */
+}
+
+
+.lista__reservas {
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.reservas__item {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0; /* Elimina el espacio entre los elementos */
+    background-color: #ffffff; /* Fondo blanco para los elementos de la lista */
+    /*border-radius: 8px;*/
+    overflow: hidden;
+    margin-bottom: 0; /* Elimina el margen inferior */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar profundidad */
+}
+
+.reservas__item-col {
+    padding: 12px;
+    text-align: -webkit-center;
+    border: 1px solid #e5e5e5; /* Borde gris claro */
+    margin: 0; /* Elimina el margen entre columnas */
+}
+
+.item--header {
+    background-color: #f9a310; /* Fondo color de encabezados */
+    color: #ffffff; /* Color del texto del encabezado */
+    font-weight: 600;
+    text-align: center;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 8px; /* Espacio entre el checkbox y la etiqueta */
+}
+
+.reservas__button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0; /* Elimina el margen alrededor del botón */
+    padding: 0; /* Elimina el relleno alrededor del botón */
+}
+
+.reservas__icon {
+    font-size: 1.2rem; /* Tamaño del icono */
+    color: #14213d; /* Color del icono */
+    transition: color 0.3s ease;
+}
+
+.reservas__button:hover .reservas__icon {
+    color: #f9a310; /* Color del icono al pasar el cursor */
+}
+
+.action-button {
+    margin: 0;
+    padding: 0;
+}
+
+.action-button.edit .reservas__icon {
+    color: #f9a310; /* Color del icono de editar */
+}
+
+.action-button.delete .reservas__icon {
+    color: #dc3545; /* Color del icono de eliminar */
+}
+
+.reservas__item:nth-child(even) {
+    background-color: #f5f5f5; /* Color de fondo alternante para filas pares */
+}
+
+.reservas__item:hover {
+    background-color: #f1f1f1; /* Fondo al pasar el ratón sobre una fila */
+}
+
+@media (max-width: 768px) {
+    .reservas__item {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+
+    .reservas__item-col {
+        padding: 8px;
+    }
+
+    .buttons__page {
+        flex-direction: column;
+        gap: 10px; /* Espacio entre botones en vista móvil */
+    }
+
+    .reservas__boton {
+        width: 100%;
+    }
+}

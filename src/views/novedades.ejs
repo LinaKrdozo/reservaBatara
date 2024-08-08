@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+     <!--head partial-->
+     <%- include('./partials/head', {css:'/css/novedades.css'}); %>
+     <!--fin partial-->
+</head>
+    <body>
+        <%- include('./partials/header'); %>
+
+        <section class="imagen-principal">
+            <img src="img/imagenPrueba.jpg" alt="" class="imagen-principal__img">
+        </section>
+    
+        <section class="principal__section section--migadepan">
+            <div class="contenedor contenedor--migadepan">
+               <%- include('./partials/migaDePan', {local: 'Novedades'}); %> 
+            </div>
+          </section>
+
+  <!--CONTENIDO-->
+    <h3 class="titulo__novedades">Novedades</h3>
+    <section class="novedades">
+        <% novedades.forEach(novedad => { %>
+            <%- include('./partials/novedad', { novedad: novedad }); %>
+        <% }); %>
+    </section>
+
+        <%- include('./partials/footer'); %>
+    </body>
+</html>

@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "descargaDocumento": "/documentos/manualDeConvivencia.pdf",
+        "descripcion":"Descargar Manual de convivencia (PDF)" 
+    },
+    {
+        "id": 2,
+        "descargaDocumento": "/documentos/manualTratamientoDatosPersonales.pdf",
+        "descripcion":"Descargar manual tratamiento de datos personales (PDF)" 
+    },
+    {
+        "id": 3,
+        "descargaDocumento": "/documentos/reglamentoGimnasio.pdf",
+        "descripcion":"Descargar manual del gimnasio (PDF)" 
+    }
+
+]

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+     <!--head partial-->
+     <%- include('../partials/head', {css:'/css/reservasAdmin.css'}); %>
+     <!--fin partial-->
+</head>
+<body>
+    <main>
+      
+    <%- include('../partials/header'); %>
+    <section class="principal__section section--migadepan">
+      <div class="contenedor contenedor--migadepan">
+         <%- include('../partials/migaDePan', {local: 'panel reservas'}); %> 
+      </div>
+    </section>
+  <!--CONTENIDO-->
+  <section class="principal__section section--reservas">
+    <div class="contenedor">
+
+        <h1 class="principal__titulo-section">RESERVAS SALON SOCIAL</h1>
+
+        <div class="buttons__page">
+            <a class="link" href="/admin/reservas/create/">
+                <button class="reservas__boton boton--create boton">
+                    Crear reserva
+                </button>
+            </a>
+            <a class="link" href="#">
+                <button class="reservas__boton boton--users boton">
+                    Usuarios
+                </button>
+            </a>
+        </div>
+
+        <article class="lista__reservas reservas--scroll">
+            <div class="reservas__item reservas--size">
+                <section class="reservas__item-col item--header">
+                    <p>ID</p>
+                </section>
+                <section class="reservas__item-col item--header">
+                    <p>Fecha reserva</p>
+                </section>
+                <section class="reservas__item-col item--header">
+                    <p>Asistentes</p>
+                </section>
+                <section class="reservas__item-col item--header">
+                    <p>Disponibilidad</p>
+                </section>
+                <section class="reservas__item-col item--header">
+                    <p>Ver</p>
+                </section>
+                <section class="reservas__item-col item--header">
+                    <p>Editar</p>
+                </section>
+                <section class="reservas__item-col item--header">
+                    <p>Eliminar</p>
+                </section>
+            </div>
+            <% listaDeReservas.forEach((reserva) => { %>
+            <div class="reservas__item reservas--size">
+                <section class="reservas__item-col">
+                    <p><%= reserva.id %></p>
+                </section>
+                <section class="reservas__item-col">
+                    <p><%= reserva.fechaReserva %></p>
+                </section>
+                <section class="reservas__item-col">
+                    <p><%= reserva.asistentes %></p>
+                </section>
+                <section class="reservas__item-col">
+                    <p><%= reserva.disponibilidad %></p>
+                </section>
+                <section class="reservas__item-col">
+                    <button class="reservas__button"><a href="/admin/reservas/detalle/<%=reserva.id %>"><i class="reservas__icon fa-solid fa-eye"></i></a></button>
+                </section>
+                <section class="reservas__item-col">
+                    <button class="reservas__button"><a href="/admin/reservas/edit/<%=reserva.id %>?_method=PUT" class="action-button edit"><i class="reservas__icon fa-solid fa-pen-to-square"></a></i></button>
+                </section>
+                <section class="reservas__item-col">
+                    <form action="/admin/<%=reserva.id%>?_method=DELETE" method="POST" class="delete-form">
+                        <button class="reservas__button action-button delete" data-reserva-id="<%= reserva.id %>"><i class="reservas__icon fa-solid fa-trash-can"></i></button>
+                    </form>
+                </section>
+            </div>
+            <% }) %>
+        </article>
+    </div>
+</section>
+
+  <!--FIN CONTENIDO-->
+</main>
+    <%- include('../partials/footer'); %>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/botonEliminar.js"></script> 
+  </body>
+</html>

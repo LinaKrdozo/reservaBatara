@@ -1,0 +1,133 @@
+/* Estilos generales para el formulario */
+.formulario {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.formulario__contenido {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.formulario__imagen {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+.formulario__form {
+    background-color: #ffffff;
+    padding: 61px;
+    border-radius: 10px;
+    width: 100%; /* Asegúrate de que el formulario use todo el espacio disponible en su contenedor */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.formulario__titulo {
+    font-size: 35px;
+    margin-bottom: 20px;
+    color: #14213d;
+    text-align: center;
+}
+
+.formulario__grupo {
+    margin-bottom: 15px;
+}
+
+.formulario__label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+.formulario__imagen-previa {
+    max-width: 200px; /* Ajusta el ancho máximo según sea necesario */
+    height: auto; /* Mantiene la proporción de aspecto */
+    display: block; /* Asegura que la imagen ocupe su propio espacio en el flujo del documento */
+    margin-bottom: 15px; /* Espacio inferior para separar la imagen del campo de archivo */
+    border-radius: 5px; /* Opcional: añade bordes redondeados */
+    border: 1px solid #ccc; /* Opcional: añade un borde para un mejor estilo */
+}
+
+.formulario__input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.formulario__boton {
+    background-color: #f9a310;
+    color: #ffffff;
+    border: none;
+    padding: 16px 57px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-top: 23px;
+    margin-left: 100px;
+}
+
+.formulario__boton:hover {
+    background-color: #e08910;
+}
+
+/* Estilo opcional para ocultar la sección de fotoPago */
+.oculto {
+    display: none;
+}
+
+.link-login {
+    margin-top: 20px; /* Añadir espacio superior */
+    text-align: center; /* Centrar el texto */
+}
+
+.link-login a {
+    color: #f9a310; /* Color del enlace */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.link-login a:hover {
+    color: #e08910; /* Color del enlace en hover */
+}
+
+/* Media queries para tabletas y celulares */
+@media (max-width: 768px) {
+    .formulario {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 1024px) {
+    .formulario {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .formulario__contenido {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .formulario__form {
+        width: 100%;
+    }
+
+    .formulario__imagen {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .formulario__boton {
+        width: 100%;
+    }
+}

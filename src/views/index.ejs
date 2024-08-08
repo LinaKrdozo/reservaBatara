@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!--head partial-->
+    <%- include('./partials/head', {css:'css/index.css'}); %>
+    <!--fin partial-->
+</head>
+<body>
+    <main>
+    <%- include('./partials/header'); %>
+    <section class="imagen-principal">
+        <img src="img/imagenPrueba.jpg" alt="" class="imagen-principal__img">
+    </section>
+
+    <section class="informacion">
+        <div class="informacion__card">
+            <div class="informacion__icono">
+                <i class="fa-solid fa-car"></i>
+            </div>
+            <h4 class="informacion__numero">0</h4>
+            <p class="informacion__descripcion">Parqueaderos privados</p>
+        </div>
+        <div class="informacion__card">
+            <div class="informacion__icono">
+                <i class="fa-solid fa-building"></i>
+            </div>
+            <h4 class="informacion__numero">0</h4>
+            <p class="informacion__descripcion">Apartamentos</p>
+        </div>
+        <div class="informacion__card">
+            <div class="informacion__icono">
+                <i class="fa-solid fa-car"></i>
+            </div>
+            <h4 class="informacion__numero">0</h4>
+            <p class="informacion__descripcion">Parqueaderos visitantes</p>
+        </div>
+    </section>
+
+        <section class="caracteristicas">
+            <% anuncios.forEach(anuncio => { %>
+                <%- include('./partials/anuncios', { anuncio: anuncio }); %>
+            <% }); %>
+    </main>
+    <%- include('./partials/footer'); %>
+    <script src="js/scriptIndex.js"></script> 
+</body>
+</html>

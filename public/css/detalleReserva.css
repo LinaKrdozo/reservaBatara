@@ -1,0 +1,115 @@
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>> DETALLE RESERVA <<<<<<<< */
+
+.detalle-reserva {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 530px;
+}
+
+.card {
+    padding: 20px;
+    text-align: center;
+}
+
+.card h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #14213d;
+}
+
+.card p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.card p strong {
+    color: #333;
+}
+
+.detalle-reserva__foto {
+    max-width: 29%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.actions {
+    margin-top: 20px;
+}
+.confirm {
+    background-color: #f9a310;
+    color: #ffffff;
+    padding: 16px 57px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 9px 33px;
+}
+
+.confirm:hover {
+    background-color: #e08910;
+}
+
+.actions button {
+    background-color: #f9a310;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+}
+
+.actions button:hover {
+    background-color: #e08910;
+}
+@media (max-width: 768px) {
+    .detalle-reserva {
+        padding: 15px;
+        margin: 15px;
+    }
+
+    .card h2 {
+        font-size: 20px;
+    }
+
+    .card p {
+        font-size: 14px;
+    }
+
+    .actions button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-right: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .detalle-reserva {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .card h2 {
+        font-size: 18px;
+    }
+
+    .card p {
+        font-size: 12px;
+    }
+
+    .actions button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
