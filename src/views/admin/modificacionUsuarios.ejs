@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!--head partial-->
+    <%- include('../partials/head', {css:'/css/creacionReservaAdmin.css'}); %>
+    <!--fin partial-->
+</head>
+<body>
+    <%- include('../partials/header'); %>
+    <section class="principal__section section--migadepan">
+      <div class="contenedor contenedor--migadepan">
+         <%- include('../partials/migaDePan', {local: 'modificar usuarios'}); %> 
+      </div>
+    </section>
+
+    <h2 class="formulario__titulo">Modificar Usuario </h2>
+    <section class="formulario">
+        <article class="formulario__contenido">
+            <form action="/usuarios/admin/<%=usuario.idUsuario%>?_method=PUT" method="POST" enctype="multipart/form-data" class="formulario__form">
+                
+                <div class="formulario__grupo">
+                    <label for="nombreCompleto" class="formulario__label">Nombre Completo:
+                    <input type="text" id="nombreCompleto" name="nombreCompleto" class="formulario__input" value="<%= usuario.nombreCompleto %>" placeholder="juan Perez" required>
+                    </label>
+                </div>
+                <div class="formulario__grupo">
+                    <label for="correo" class="formulario__label">Correo:
+                    <input type="email" id="correo" name="correo" class="formulario__input" value="<%= usuario.correo%>" placeholder="ejemplo@mail.com" required>
+                    </label>
+                </div>
+                <div class="formulario__grupo">
+                    <label for="telefono" class="formulario__label">Teléfono:
+                    <input type="text" id="telefono" name="telefono" class="formulario__input" value="<%= usuario.telefono%>" placeholder="123456" required>
+                    </label>
+                </div>
+                <div class="formulario__grupo">
+                    <label for="residente" class="formulario__label">tipo de residente</label>
+                    <select id="residente" name="residente" class="formulario__input">
+                        <option value="propietario" <%= usuario.residente === 'propietario' ? 'selected' : '' %>>Propietario</option>
+                        <option value="arrendatario" <%= usuario.residente === 'arrendatario' ? 'selected' : '' %>>Arrendatario</option>
+                    </select>
+                </div>
+                <div class="formulario__grupo" id="apartamento">
+                    <label for="apartamento" class="formulario__label">Número de Apartamento:</label>
+                    <input type="text" id="apartamento" name="apartamento" value="<%= usuario.apartamento %>" class="formulario__input" placeholder="0">
+                </div>
+                <div class="formulario__grupo" id="nombreRol">
+                    <label for="nombreRol" class="formulario__label">Rol:</label>
+                    <select id="nombreRol" name="nombreRol" class="formulario__input" required>
+                        <option value="" disabled selected>Seleccione un rol</option>
+                        <option value="administrador" <%= usuario.nombreRol === 'administrador' ? 'selected' : '' %>>Administrador</option>
+                        <option value="residente" <%= usuario.nombreRol === 'residente' ? 'selected' : '' %>>Residente</option>
+                        <option value="particular" <%= usuario.nombreRol === 'particular' ? 'selected' : '' %>>Particular</option>
+                    </select>
+                </div>
+                
+                <div class="formulario__grupo" id="foto">
+                    <label for="foto" class="formulario__label">Foto de Perfil:</label>
+                    <img src="/<%= usuario.foto %>" alt="foto" class="formulario__imagen-previa">
+                    <input type="file" id="foto" name="foto" class="formulario__input">
+                </div>
+                
+                <button type="submit" class="formulario__boton">Modificar Usuario</button>
+            </form>
+        </article>
+        <article class="formulario__contenido">
+            <img src="/img/modificarReserva.png" alt="" class="formulario__imagen">
+        </article>
+    </section>
+    <%- include('../partials/footer'); %>
+   <!--<script src="/js/scriptModUsuario.js"></script>-->
+</body>
+</html>

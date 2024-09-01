@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!--head partial-->
+    <%- include('../partials/head', {css:'/css/perfil.css'}); %>
+    <!--fin partial-->
+</head>
+<body>
+    <%- include('../partials/header'); %>
+
+        <section class="principal__section section--migadepan">
+            <div class="contenedor contenedor--migadepan">
+               <%- include('../partials/migaDePan', {local: 'Mi perfil'}); %> 
+            </div>
+          </section>
+
+          <section class="principal__section section--perfil">
+            <div class="contenedor contenedor--perfil">
+                <div class="perfil__card perfil__card--izquierda">
+                    <img src="/img/imagenPrueba.jpg" alt="Foto de perfil" class="perfil__imagen">
+                    <h1 class="perfil__nombre">Juan Pérez</h1>
+                    <p class="perfil__correo">juan.perez@example.com</p>
+                </div>
+    
+                <div class="perfil__card perfil__card--derecha">
+                    <h2 class="perfil__tabla-titulo">Reservas</h2>
+                    <table class="perfil__tabla">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>fecha</th>
+                                <th>descripción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>01/01/9999</td>
+                                <td>Cumpleaños</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>01/01/9999</td>
+                                <td>Junta</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>01/01/9999</td>
+                                <td>baby shower</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>01/01/9999</td>
+                                <td>Cumpleaños</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    
+    </section>
+    <%- include('../partials/footer'); %>
+</body>
+</html>

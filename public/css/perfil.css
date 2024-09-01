@@ -1,0 +1,120 @@
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>> PERFIL DE USUARIO <<<<<<<< */
+
+.principal__section.section--perfil {
+    background-color: #e5e5e5; /* Fondo gris claro */
+    padding: 40px 0;
+}
+
+.contenedor--perfil {
+    display: flex;
+    flex-direction: row; /* Disposición en fila por defecto */
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.perfil__card {
+    background-color: #ffffff; /* Fondo blanco para las tarjetas */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra de la tarjeta */
+    padding: 20px;
+    width: 100%;
+}
+
+.perfil__card--izquierda {
+    flex: 1;
+    text-align: center;
+}
+
+.perfil__card--derecha {
+    flex: 2;
+}
+
+.perfil__imagen {
+    border-radius: 50%; /* Imagen circular */
+    width: 150px; /* Tamaño de la imagen */
+    height: 150px; /* Tamaño de la imagen */
+    object-fit: cover; /* Ajuste de la imagen */
+    margin-bottom: 15px;
+}
+
+.perfil__nombre {
+    font-size: 1.8rem; /* Tamaño del nombre del usuario */
+    color: #14213d; /* Color del nombre en azul oscuro */
+    margin-bottom: 5px;
+}
+
+.perfil__correo {
+    font-size: 1.2rem; /* Tamaño del correo electrónico */
+    color: #000000; /* Color del correo electrónico en negro */
+}
+
+.perfil__tabla-titulo {
+    font-size: 1.5rem; /* Tamaño del título de la tabla */
+    color: #14213d; /* Color del título en azul oscuro */
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.perfil__tabla {
+    width: 100%;
+    border-collapse: collapse; /* Colapsar bordes de la tabla */
+}
+
+.perfil__tabla th, .perfil__tabla td {
+    border: 1px solid #ddd; /* Bordes de la tabla */
+    padding: 10px;
+    text-align: left;
+}
+
+.perfil__tabla th {
+    background-color: #f9a310; /* Fondo amarillo para los encabezados de la tabla */
+    color: #ffffff; /* Color del texto en los encabezados */
+}
+
+.perfil__tabla tr:nth-child(even) {
+    background-color: #ffffff; /* Fondo blanco para las filas pares */
+}
+
+.perfil__tabla tr:nth-child(odd) {
+    background-color: #f9f9f9; /* Fondo gris claro para las filas impares */
+}
+
+.perfil__tabla tr:hover {
+    background-color: #f1f1f1; /* Fondo gris claro para las filas al pasar el cursor */
+}
+
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>> MEDIA QUERIES <<<<<<<< */
+
+@media (max-width: 1024px) {
+    .contenedor--perfil {
+        flex-direction: column; /* Apilar tarjetas verticalmente en pantallas medianas */
+        gap: 20px;
+    }
+
+    .perfil__card {
+        max-width: 100%; /* Asegurarse de que las tarjetas usen el 100% del ancho en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 768px) {
+    .perfil__imagen {
+        width: 120px; /* Reducir tamaño de la imagen en dispositivos móviles */
+        height: 120px;
+    }
+
+    .perfil__nombre {
+        font-size: 1.5rem; /* Reducir tamaño del texto en nombre */
+    }
+
+    .perfil__correo {
+        font-size: 1rem; /* Reducir tamaño del texto en correo electrónico */
+    }
+
+    .perfil__tabla-titulo {
+        font-size: 1.2rem; /* Reducir tamaño del título de la tabla */
+    }
+
+    .perfil__tabla th, .perfil__tabla td {
+        padding: 8px; /* Reducir padding en la tabla para pantallas más pequeñas */
+    }
+}

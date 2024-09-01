@@ -16,24 +16,41 @@
     <h2 class="formulario__titulo">Formulario de reserva Administrador</h2>
     <section class="formulario">
         <article class="formulario__contenido">
-            <form action="/admin/reservas" method="POST" enctype="multipart/form-data" class="formulario__form">
+            <form action="/reservas/admin" method="POST" enctype="multipart/form-data" class="formulario__form">
                 <!--<div class="formulario__grupo">
                     <label for="nombre" class="formulario__label">Nombre Completo:</label>
                     <input type="text" id="nombre" name="nombre" class="formulario__input" placeholder="nombre completo" required>
                 </div>-->
                 <div class="formulario__grupo">
-                    <label for="fechaReserva" class="formulario__label">Fecha de Reserva:
-                    <input type="date" id="fechaReserva" name="fechaReserva" class="formulario__input" placeholder="dd/mm/aaaa" required>
+                    <label for="fechaReserva" class="formulario__label">Fecha de reserva:
+                        <div class="tooltip-container">
+                            <input type="date" id="fechaReserva" name="fechaReserva" class="formulario__input reserva-inicial" placeholder="dd/mm/aaaa" required>
+                            <div class="tooltip">La reserva se debe hacer 8 dias antes del evento</div>
+                        </div>
+                    </label>
+                    <label for="fechaEvento" class="formulario__label">Fecha del Evento:
+                    <input type="date" id="fechaEvento" name="fechaEvento" class="formulario__input" placeholder="dd/mm/aaaa" readonly>
                     </label>
                 </div>
                 <div class="formulario__grupo">
+                    <label for="tipo_evento" class="formulario__label">Tipo de Evento:</label>
+                    <select id="tipo_evento" name="tipo_evento" class="formulario__input" required>
+                        <option value="">Seleccione un tipo</option>
+                        <option value="educativo">Educativo</option>
+                        <option value="laboral">Laboral</option>
+                        <option value="didactico">Didáctico</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+                
+                <div class="formulario__grupo">
                     <label for="asistentes" class="formulario__label">Cantidad de asistentes:
-                    <input type="text" id="asistentes" name="asistentes" class="formulario__input" placeholder="1" required>
+                    <input type="number" id="asistentes" name="asistentes" class="formulario__input" placeholder="1" required>
                     </label>
                 </div>
                 <div class="formulario__grupo">
                     <label for="cantidadHoras" class="formulario__label">Cantidad de horas:
-                    <input type="text" id="cantidadHoras" name="cantidadHoras" class="formulario__input" placeholder="1" required>
+                    <input type="number" id="cantidadHoras" name="cantidadHoras" class="formulario__input" placeholder="1" required>
                     </label>
                 </div>
                 <div class="formulario__grupo">
@@ -41,16 +58,17 @@
                     <input type="text" id="descripcion" name="descripcion" class="formulario__input" placeholder="descripcion" required>
                     </label>
                 </div>
-                <div class="formulario__grupo">
+                <div class="formulario__grupo" id="disponibilidad">
                     <label for="disponibilidad" class="formulario__label">Disponibilidad:
                     <select id="disponibilidad" name="disponibilidad" class="formulario__input" required>
+                        <option value="">Seleccione una opción</option>
                         <option value="confirmada">Confirmada</option>
                         <option value="pendiente">Pendiente</option>
                         <option value="cancelada">Cancelada</option>
                     </select>
                     </label>
                 </div>
-                <div class="formulario__grupo" id="fotoPagoGrupo">
+                <div class="formulario__grupo" id="fotoPago">
                     <label for="fotoPago" class="formulario__label">Foto Pago:</label>
                     <input type="file" id="fotoPago" name="fotoPago" class="formulario__input">
                 </div>

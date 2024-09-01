@@ -12,8 +12,7 @@ let reservasService = {
         //aqui va la relacion con usuarios para que en la tabla salga el nombre de quien reservo
         return this.reservas;
     },
-
-    //me retorna un usuario por id
+    
     getOneBy: function(id){
           
         let idNumber = Number(id);
@@ -24,6 +23,8 @@ let reservasService = {
     },
 
     save: function(reserva){
+       
+
          let idMayor = reservas.reduce((contador, reserva) => {
             if (reserva.id > contador) {
                 return reserva.id;
@@ -32,11 +33,12 @@ let reservasService = {
         }, 0);
         
         let idIncrementado = idMayor + 1;
-        
+
         let NuevaReserva = {
             id: idIncrementado,
             fechaReserva: reserva.fechaReserva,
             asistentes: reserva.asistentes,
+            tipo_evento: reserva.tipo_evento,
             descripcion: reserva.descripcion,
             cantidadHoras: reserva.cantidadHoras,
             fotoPago: reserva.fotoPago,
@@ -50,12 +52,13 @@ let reservasService = {
     },
 
     update: function(formReservaActualizacion,id){
-       
+    
         let buscarReserva= reservas.find(buscarReserva => buscarReserva.id == id)
         
         if (buscarReserva) {
             buscarReserva.fechaReserva = formReservaActualizacion.fechaReserva;
             buscarReserva.asistentes = formReservaActualizacion.asistentes;
+            buscarReserva.tipo_evento = formReservaActualizacion.tipo_evento;
             buscarReserva.descripcion = formReservaActualizacion.descripcion;
             if (formReservaActualizacion.fotoPago) {
                 buscarReserva.fotoPago = formReservaActualizacion.fotoPago;

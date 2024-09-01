@@ -1,0 +1,144 @@
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>> RESERVAS <<<<<<<< */
+
+.principal__section.section--migadepan {
+    padding: 20px;
+    background-color: #e5e5e5; /* Fondo más claro para un diseño moderno */
+    padding-bottom: 68px;
+}
+
+.gestion-usuarios__titulo-seccion {
+    font-size: 2rem;
+    color: #14213d; /* Color del texto del título */
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.botones__pagina {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Espacio entre botones */
+    margin-bottom: 20px;
+}
+
+.usuarios--scroll{
+    padding-bottom: 103px;
+}
+
+.enlace {
+    text-decoration: none;
+}
+
+.gestion-usuarios__boton {
+    background-color: #f9a310; /* Color de fondo del botón */
+    color: #ffffff; /* Color del texto del botón */
+    border: none;
+    border-radius: 8px; /* Bordes redondeados para un diseño moderno */
+    padding: 12px 24px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.gestion-usuarios__boton:hover {
+    background-color: #e08d00; /* Color de fondo del botón al pasar el cursor */
+    color: #ffffff; /* Color del texto al pasar el cursor */
+    transform: scale(1.05); /* Efecto de escala al pasar el cursor */
+}
+
+.gestion-usuarios__boton.boton--usuarios {
+    background-color: #14213d; /* Color específico para el botón de usuarios */
+}
+
+.gestion-usuarios__boton.boton--usuarios:hover {
+    background-color: #000000; /* Color de fondo del botón de usuarios al pasar el cursor */
+}
+
+.lista-usuarios {
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.lista-usuarios__item {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0; /* Elimina el espacio entre los elementos */
+    background-color: #ffffff; /* Fondo blanco para los elementos de la lista */
+    overflow: hidden;
+    margin-bottom: 0; /* Elimina el margen inferior */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar profundidad */
+}
+
+.lista-usuarios__item-col {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #e5e5e5; /* Borde gris claro */
+    margin: 0; /* Elimina el margen entre columnas */
+}
+
+.item--encabezado {
+    background-color: #f9a310; /* Fondo color de encabezados */
+    color: #ffffff; /* Color del texto del encabezado */
+    font-weight: 600;
+    text-align: center;
+}
+
+.lista-usuarios__boton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0; /* Elimina el margen alrededor del botón */
+    padding: 0; /* Elimina el relleno alrededor del botón */
+}
+
+.lista-usuarios__icono {
+    font-size: 1.2rem; /* Tamaño del icono */
+    color: #14213d; /* Color del icono */
+    transition: color 0.3s ease;
+    padding-left: 72px;
+}
+
+.lista-usuarios__boton:hover .lista-usuarios__icono {
+    color: #f9a310; /* Color del icono al pasar el cursor */
+}
+
+.editar .lista-usuarios__icono {
+    color: #f9a310; /* Color del icono de editar */
+    text-align: center;
+    padding-left: 72px;
+}
+
+.delete .lista-usuarios__icono {
+    color: #dc3545; /* Color del icono de eliminar */
+    padding-left: 72px;
+}
+
+.lista-usuarios__item:nth-child(even) {
+    background-color: #f5f5f5; /* Color de fondo alternante para filas pares */
+}
+
+.lista-usuarios__item:hover {
+    background-color: #f1f1f1; /* Fondo al pasar el ratón sobre una fila */
+}
+
+@media (max-width: 768px) {
+    .lista-usuarios__item {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+
+    .lista-usuarios__item-col {
+        padding: 8px;
+    }
+
+    .botones__pagina {
+        flex-direction: column;
+        gap: 10px; /* Espacio entre botones en vista móvil */
+    }
+
+    .gestion-usuarios__boton {
+        width: 100%;
+    }
+}

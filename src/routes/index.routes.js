@@ -8,6 +8,6 @@ const reservasRouter = require('./reservas.routes')
 
 router.get('/', indexController.index); 
 router.use('/usuarios', usuariosRouter);
-router.use('/admin', reservasRouter);
+router.use('/reservas', reservasRouter);
 
 module.exports = router;

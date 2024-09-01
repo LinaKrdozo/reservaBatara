@@ -2,64 +2,157 @@
 <html lang="es">
 <head>
     <!--head partial-->
-    <%- include('./partials/head', {css:'/css/registro.css'}); %>
+    <%- include('../partials/head', {css:'/css/registro.css'}); %>
     <!--fin partial-->
 </head>
 <body>
-    <%- include('./partials/header'); %>
+    <%- include('../partials/header'); %>
 
         <section class="principal__section section--migadepan">
             <div class="contenedor contenedor--migadepan">
-               <%- include('./partials/migaDePan', {local: 'Formulario de registro'}); %> 
+               <%- include('../partials/migaDePan', {local: 'Formulario de registro'}); %> 
             </div>
           </section>
     <h2 class="formulario__titulo">Formulario de Registro</h2>
     <section class="formulario">
         <article class="formulario__contenido">
-            <img src="img/imagenPrueba2.jpg" alt="" class="formulario__imagen">
+            <img src="/img/registroUsuarios.png" alt="" class="formulario__imagen">
         </article>
+
         <article class="formulario__contenido">
-            <form action="#" method="POST" enctype="multipart/form-data" class="formulario__form">
+            <form action="/usuarios/registro" method="POST" enctype="multipart/form-data" class="formulario__form" novalidate>
+                
                 <div class="formulario__grupo">
-                    <label for="nombre" class="formulario__label">Nombre Completo:</label>
-                    <input type="text" id="nombre" name="nombre" class="formulario__input" placeholder="nombre completo" required>
+                    <label for="nombreCompleto" class="formulario__label">Nombre Completo:</label>
+                    <input type="text" id="nombreCompleto" name="nombreCompleto" 
+                           class="formulario__input <%= locals.errors && errors.nombreCompleto ? 'is-invalid' : null %>" 
+                           placeholder="nombre completo"
+                           value="<%= locals.oldData ? oldData.nombreCompleto : null %>" >
+                    
+                    <% if(locals.errors && errors.nombreCompleto){ %>
+                        <div class="error-container">
+                            <i class="fas fa-exclamation-circle warning-ico"></i>
+                            <div class="text-danger">
+                                <%= errors.nombreCompleto.msg %>
+                            </div>
+                        </div>
+                    <% } %>
                 </div>
                 <div class="formulario__grupo">
                     <label for="correo" class="formulario__label">Correo Electrónico:</label>
-                    <input type="email" id="correo" name="correo" class="formulario__input" placeholder="ejemplo@mail.com" required>
+                    <input type="email" id="correo" name="correo" class="formulario__input <%= locals.errors && errors.correo ? 'is-invalid' : null %>" 
+                           placeholder="ejemplo@mail.com"
+                           value="<%= locals.oldData ? oldData.correo : null %>">
+                           
+                   
+                    <% if(locals.errors && errors.correo){ %>
+                        <div class="error-container">
+                            <i class="fas fa-exclamation-circle warning-ico"></i>
+                            <div class="text-danger">
+                                <%= errors.correo.msg %>
+                            </div>
+                        </div>
+                    <% } %>
                 </div>
+                
+
                 <div class="formulario__grupo">
                     <label for="telefono" class="formulario__label">Teléfono:</label>
-                    <input type="tel" id="telefono" name="telefono" class="formulario__input" placeholder="teléfono" required>
+                    <input type="text" id="telefono" name="telefono" class="formulario__input <%= locals.errors && errors.telefono ? 'is-invalid' : null %>" 
+                           placeholder="teléfono"
+                           value="<%= locals.oldData ? oldData.telefono : null %>" >
+
+                    <% if(locals.errors && errors.telefono){ %>
+                        <div class="error-container">
+                            <i class="fas fa-exclamation-circle warning-ico"></i>
+                            <div class="text-danger">
+                                <%= errors.telefono.msg %>
+                            </div>
+                        </div>
+                    <% } %>
                 </div>
+
                 <div class="formulario__grupo">
                     <label for="foto" class="formulario__label">Foto:</label>
-                    <input type="file" id="foto" name="foto" accept="image/*" class="formulario__input" required>
+                    <input type="file" id="foto" name="foto" accept="image/*" class="formulario__input <%= locals.errors && errors.foto ? 'is-invalid' : null %>"
+                    value="<%= locals.oldData ? oldData.foto : null %>" >
+        
+                    <% if(locals.errors && errors.foto){ %>
+                        <div class="error-container">
+                            <i class="fas fa-exclamation-circle warning-ico"></i>
+                            <div class="text-danger">
+                                <%= errors.foto.msg %>
+                            </div>
+                        </div>
+                    <% } %>
                 </div>
                 <div class="formulario__grupo">
-                    <label for="residente" class="formulario__label">¿Es residente?</label>
-                    <select id="residente" name="residente" class="formulario__input" onchange="toggleApartamento(this)">
-                        <option value="no">No</option>
-                        <option value="si">Sí</option>
+                    <label for="tipo_residente" class="formulario__label">Tipo de residente</label>
+                    <select name="tipo_residente" 
+                            class="form-select <%= locals.errors && locals.errors.tipo_residente ? 'is-invalid' : '' %> opciones" >
+                        <option value="">Elige una opción</option>
+                        <%  
+                            let options = ['Propietario', 'Arrendatario'];
+                        %>
+                        <% for (const oneOption of options) { %>
+                        <option 
+                            value="<%= oneOption %>"
+                            <%= locals.oldData && locals.oldData.tipo_residente === oneOption ? 'selected' : '' %> >
+                            <%= oneOption %>
+                        </option>
+                        <% } %>
                     </select>
+                   
+                    <% if(locals.errors && locals.errors.tipo_residente) { %>
+                        <div class="error-container">
+                            <i class="fas fa-exclamation-circle warning-ico"></i>
+                            <div class="text-danger">
+                                <%= errors.tipo_residente.msg %>
+                            </div>
+                        </div>
+                    <% } %>
                 </div>
-                <div class="formulario__grupo formulario__grupo--apartamento" id="apartamento-field" style="display: none;">
+                
+                <div class="formulario__grupo formulario__grupo--apartamento" id="apartamento-field">
                     <label for="apartamento" class="formulario__label">Número de Apartamento:</label>
-                    <input type="text" id="apartamento" name="apartamento" placeholder="numero de apartamento" class="formulario__input">
+                    <input type="text" id="apartamento" name="apartamento" placeholder="numero de apartamento" 
+                          class="formulario__input <%= locals.errors && errors.apartamento ? 'is-invalid' : null %>"
+                          value="<%= locals.oldData ? oldData.apartamento : null %>">
+                 
+                        <% if(locals.errors && errors.apartamento){ %>
+                            <div class="error-container">
+                                <i class="fas fa-exclamation-circle warning-ico"></i>
+                                <div class="text-danger">
+                                    <%= errors.apartamento.msg %>
+                                </div>
+                            </div>
+                        <% } %>
                 </div>
+
                 <div class="formulario__grupo">
                     <label for="contraseña" class="formulario__label">Contraseña:</label>
                     <div class="contraseña-input">
-                      <input type="password" id="contraseña" name="contraseña" class="formulario__input" placeholder="contraseña" required>
+                      <input type="password" id="password" name="password" class="formulario__input <%= locals.errors && errors.password ? 'is-invalid' : null %>" placeholder="contraseña" >
                       <input type="checkbox" id="showPassword" onchange="togglePasswordVisibility()">
                       <label for="showPassword">Mostrar contraseña</label>
+                      <div class="hidden_item help-message" id="password_error">
+                                        
+                        <% if(locals.errors && errors.password){ %>
+                            <div class="error-container">
+                                <i class="fas fa-exclamation-circle warning-ico"></i>
+                                <div class="text-danger">
+                                    <%= errors.password.msg %>
+                                </div>
+                            </div>
+                        <% } %>
+                    </div>
                     </div>
                 <button type="submit" class="formulario__boton">Enviar</button>
                 <p class="link-login">¿Ya tienes cuenta? Inicia sesión<a href="#"> acá</a></p>
             </form>
         </article>
     </section>
-    <%- include('./partials/footer'); %>
-    <script src="js/registro.js"></script> 
+    <%- include('../partials/footer'); %>
+    <script src="/js/registro.js"></script> 
 </body>
 </html>

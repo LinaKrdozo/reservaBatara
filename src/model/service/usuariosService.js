@@ -21,18 +21,21 @@ let usuariosService = {
         const idToCompare = Number(id);
 
         // Busca el usuario en el array de usuarios
-        let usuarioEncontrado = this.usuarios.find((usuario) => usuario.idUsuarios === idToCompare);
+        let usuarioEncontrado = this.usuarios.find((usuario) => usuario.idUsuario === idToCompare);
         
-        console.log("ID--->> ", idToCompare); 
-        console.log("USUARIO-->>", usuarioEncontrado);
+        return usuarioEncontrado;
+    },
+
+    findByField: function(campo, texto){
         
+        let usuarioEncontrado = this.usuarios.find(unUsuario=> unUsuario[campo] === texto);
         return usuarioEncontrado;
     },
 
     save: function(usuario){
          let idMayor = usuarios.reduce((contador, usuario) => {
-            if (usuario.id > contador) {
-                return usuario.id;
+            if (usuario.idUsuario > contador) {
+                return usuario.idUsuario;
             }
             return contador;
         }, 0);
@@ -40,13 +43,14 @@ let usuariosService = {
         let idIncrementado = idMayor + 1;
         
         let NuevoUsuario = {
-            id: idIncrementado,
+            idUsuario: idIncrementado,
             nombreCompleto: usuario.nombreCompleto,
             correo: usuario.correo,
             telefono: usuario.telefono,
             foto: usuario.foto,
             residente: usuario.residente,
             apartamento: usuario.apartamento,
+            password: usuario.password,
             nombreRol: usuario.nombreRol
         };     
 
@@ -58,15 +62,18 @@ let usuariosService = {
 
     update: function(formUsuarioActualizacion,id){
        
-        let buscarUsuario = usuarios.find(buscarUsuario => buscarUsuario.id == id)
+        let buscarUsuario = usuarios.find(buscarUsuario => buscarUsuario.idUsuario == id)
         
         if (buscarUsuario) {
             buscarUsuario.nombreCompleto = formUsuarioActualizacion.nombreCompleto;
             buscarUsuario.correo = formUsuarioActualizacion.correo;
             buscarUsuario.telefono = formUsuarioActualizacion.telefono;
-            buscarUsuario.foto = formUsuarioActualizacion.foto;
+            if (formUsuarioActualizacion.foto) {
+                buscarUsuario.foto = formUsuarioActualizacion.foto;
+            }
             buscarUsuario.residente = formUsuarioActualizacion.residente;
             buscarUsuario.apartamento = formUsuarioActualizacion.apartamento;
+            buscarUsuario.password = formUsuarioActualizacion.password;
             buscarUsuario.nombreRol = formUsuarioActualizacion.nombreRol;
         }
 
@@ -78,7 +85,7 @@ let usuariosService = {
 
     delete: function (id) {
         // contiene la nueva lista de usuarios sin incluir el que quiero eliminar    
-        let nuevosUsuarios = this.usuarios.filter((usuario) => usuario.id != id);
+        let nuevosUsuarios = this.usuarios.filter((usuario) => usuario.idUsuario != id);
         // sobreescribo la lista de usuarios por la nueva lista
         this.usuarios = nuevosUsuarios;
         fs.writeFileSync(path.join(__dirname, '../../data/usuarios.json'), JSON.stringify( this.usuarios))

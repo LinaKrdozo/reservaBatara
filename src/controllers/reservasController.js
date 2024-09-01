@@ -2,6 +2,26 @@ const { EagerLoadingError } = require("sequelize");
 const reservasService= require("../model/service/reservasService")
 
 module.exports ={
+	/************* METODOS USUARIO **********/
+	createReserva: (req, res) => {
+		res.render('reservas/creacionReserva')
+	},
+	
+	// Create -  Method to store
+	storeReserva: (req, res) => {
+		let reserva = req.body;
+        if (req.file) {
+            reserva.fotoPago = 'img/imgReservas/' + req.file.filename;
+        } else {
+            reserva.fotoPago = null;
+        }
+        reservasService.save(reserva);
+        res.redirect('/usuarios/perfil');
+	},
+
+
+
+	/************* METODOS ADMIN **********/
 	
 	getAllReservas: (req, res) => {
 		//res.send(productService.getAll())
@@ -23,9 +43,13 @@ module.exports ={
 	// Create -  Method to store
 	store: (req, res) => {
 		let reserva = req.body;
-		reserva.fotoPago = 'img/imgReservas/' + req.file.filename;
-		reservasService.save(reserva);
-		res.redirect('/admin')
+        if (req.file) {
+            reserva.fotoPago = 'img/imgReservas/' + req.file.filename;
+        } else {
+            reserva.fotoPago = null;
+        }
+        reservasService.save(reserva);
+        res.redirect('/reservas');
 	},
 	// Update - Form to edit
 	edit: (req, res) => {
@@ -41,7 +65,7 @@ module.exports ={
 		}
 
 		reservasService.update(req.body,req.params.id);
-		res.redirect('/admin') 
+		res.redirect('/reservas') 
 
 	},
 	// Delete - Delete one booking from DB

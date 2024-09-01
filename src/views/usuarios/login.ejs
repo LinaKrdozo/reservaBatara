@@ -2,44 +2,64 @@
 <html lang="es">
 <head>
     <!--head partial-->
-    <%- include('./partials/head', {css:'/css/login.css'}); %>
+    <%- include('../partials/head', {css:'/css/login.css'}); %>
     <!--fin partial-->
 </head>
 <body>
-    <%- include('./partials/header'); %>
+    <%- include('../partials/header'); %>
 
         <section class="principal__section section--migadepan">
             <div class="contenedor contenedor--migadepan">
-               <%- include('./partials/migaDePan', {local: 'Mi cuenta'}); %> 
+               <%- include('../partials/migaDePan', {local: 'Mi cuenta'}); %> 
             </div>
           </section>
     <h2 class="formulario__titulo">Mi cuenta</h2>
     
     <section class="formulario">
         <article class="formulario__contenido">
-            <form action="#" method="POST" enctype="multipart/form-data" class="formulario__form">
+            <form action="#" method="POST" enctype="multipart/form-data" class="formulario__form" >
                 <i class="fa-solid fa-circle-user formulario__icono"></i>
                 <div class="formulario__grupo">
                     <label for="correo" class="formulario__label">Correo Electrónico:</label>
-                    <input type="email" id="correo" name="correo" class="formulario__input" placeholder="ejemplo@mail.com" required>
+                    <input type="email" id="correo" name="correo" class="formulario__input <%= locals.errors && errors.correo ? 'is-invalid' : null %>" 
+                           placeholder="ejemplo@mail.com">
+                  
+                           <% if(locals.errors && errors.correo){ %>
+                            <div class="error-container">
+                                <i class="fas fa-exclamation-circle warning-ico"></i>
+                                <div class="text-danger">
+                                    <%= errors.correo.msg %>
+                                </div>
+                            </div>
+                        <% } %>
                 </div>
                 <div class="formulario__grupo">
                     <label for="contraseña" class="formulario__label">Contraseña:</label>
-                    <input type="password" id="contraseña" name="contraseña" class="formulario__input" placeholder="contraseña" required>
+                    <input type="password" id="contraseña" name="contraseña" class="formulario__input <%= locals.errors && errors.password ? 'is-invalid' : null %>" placeholder="contraseña" required>
                     <input type="checkbox" id="showPassword" onchange="togglePasswordVisibility()">
                     <label for="showPassword">Mostrar contraseña</label>
-                </div>
+                    <div class="hidden_item help-message" id="password_error">
+                                        
+                        <% if(locals.errors && errors.password){ %>
+                            <div class="error-container">
+                                <i class="fas fa-exclamation-circle warning-ico"></i>
+                                <div class="text-danger">
+                                    <%= errors.password.msg %>
+                                </div>
+                            </div>
+                        <% } %>
+                      </div>
                 </div>
                 <button type="submit" class="formulario__boton">Enviar</button>
                 <div class="recuerdame">
                     <label  for="Recuerdame">Recuerdame</label>
                     <input type="checkbox" name="remember">
-                    </div>
+                </div>
                 <p class="link-login">¿Ya tienes cuenta? Registrate<a href="#"> acá</a></p>
             </form>
         </article>
     </section>
-    <%- include('./partials/footer'); %>
-    <script src="js/registro.js"></script>
+    <%- include('../partials/footer'); %>
+    <script src="/js/registro.js"></script>
 </body>
 </html>

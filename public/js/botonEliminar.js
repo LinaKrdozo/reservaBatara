@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 cancelButtonText: 'Cancelar'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    fetch(`/admin/${reservaId}`, {
+                    fetch(`/reservas/${reservaId}`, {
                         method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json'

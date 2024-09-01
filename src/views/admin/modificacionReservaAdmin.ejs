@@ -9,31 +9,47 @@
     <%- include('../partials/header'); %>
     <section class="principal__section section--migadepan">
       <div class="contenedor contenedor--migadepan">
-         <%- include('../partials/migaDePan', {local: 'registro reservas'}); %> 
+         <%- include('../partials/migaDePan', {local: 'modificar reservas'}); %> 
       </div>
     </section>
 
     <h2 class="formulario__titulo">Modificar reserva </h2>
     <section class="formulario">
         <article class="formulario__contenido">
-            <form action="/admin/reservas/<%=reserva.id%>?_method=PUT" method="POST" enctype="multipart/form-data" class="formulario__form">
+            <form action="/reservas/admin/<%=reserva.id%>?_method=PUT" method="POST" enctype="multipart/form-data" class="formulario__form">
                 <!--<div class="formulario__grupo">
                     <label for="nombre" class="formulario__label">Nombre Completo:</label>
                     <input type="text" id="nombre" name="nombre" class="formulario__input" placeholder="nombre completo" required>
                 </div>-->
                 <div class="formulario__grupo">
-                    <label for="fechaReserva" class="formulario__label">Fecha de Reserva:
-                    <input type="date" id="fechaReserva" name="fechaReserva" class="formulario__input" value="<%= reserva.fechaReserva %>" placeholder="dd/mm/aaaa" required>
+                    <label for="fechaReserva" class="formulario__label">Fecha de reserva:
+                        <div class="tooltip-container">
+                            <input type="date" id="fechaReserva" name="fechaReserva" class="formulario__input reserva-inicial" value="<%= reserva.fechaReserva %>" required>
+                            <div class="tooltip">La reserva se debe hacer 8 dias antes del evento</div>
+                        </div>
+                    </label>
+                    <label for="fechaEvento" class="formulario__label">Fecha del Evento:
+                    <input type="text" id="fechaEvento" name="fechaEvento" class="formulario__input" value="<%= reserva.fechaEvento %>" required>
                     </label>
                 </div>
                 <div class="formulario__grupo">
+                    <label for="tipo_evento" class="formulario__label">Tipo de Evento:</label>
+                    <select id="tipo_evento" name="tipo_evento" class="formulario__input" required>
+                        <option value="educativo" <%= reserva.tipo_evento === 'educativo' ? 'selected' : '' %>>Educativo</option>
+                        <option value="laboral" <%= reserva.tipo_evento === 'laboral' ? 'selected' : '' %>>Laboral</option>
+                        <option value="didactico" <%= reserva.tipo_evento === 'didactico' ? 'selected' : '' %>>Didáctico</option>
+                        <option value="otro" <%= reserva.tipo_evento === 'otro' ? 'selected' : '' %>>Otro</option>
+                    </select>
+                </div>
+
+                <div class="formulario__grupo">
                     <label for="asistentes" class="formulario__label">Cantidad de asistentes:
-                    <input type="text" id="asistentes" name="asistentes" class="formulario__input" value="<%= reserva.asistentes%>" placeholder="1" required>
+                    <input type="number" id="asistentes" name="asistentes" class="formulario__input" value="<%= reserva.asistentes%>" placeholder="1" required>
                     </label>
                 </div>
                 <div class="formulario__grupo">
                     <label for="cantidadHoras" class="formulario__label">Cantidad de horas:
-                    <input type="text" id="cantidadHoras" name="cantidadHoras" class="formulario__input" value="<%= reserva.cantidadHoras%>" placeholder="1" required>
+                    <input type="number" id="cantidadHoras" name="cantidadHoras" class="formulario__input" value="<%= reserva.cantidadHoras%>" placeholder="1" required>
                     </label>
                 </div>
                 <div class="formulario__grupo">
@@ -52,8 +68,14 @@
                 
                 <div class="formulario__grupo" id="fotoPago">
                     <label for="fotoPago" class="formulario__label">Foto Pago:</label>
-                    <img src="/<%= reserva.fotoPago %>" alt="fotoPago" class="formulario__imagen-previa">
+                    <% if (reserva.disponibilidad === 'confirmada' && reserva.fotoPago != null) { %>
+                        <img src="/<%= reserva.fotoPago %>" alt="Foto del Pago" class="formulario__imagen-previa">
+                    <% } %>
+                    <% if (reserva.fotoPago === null) { %>
+                      <img src="/img/imgNoDisp.png" alt="Foto del Pago" class="formulario__imagen-previa">
+                  <% } %>
                     <input type="file" id="fotoPago" name="fotoPago" class="formulario__input">
+
                 </div>
                 <button type="submit" class="formulario__boton">Modificar Reserva</button>
             </form>

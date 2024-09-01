@@ -21,7 +21,7 @@
         <h1 class="principal__titulo-section">RESERVAS SALON SOCIAL</h1>
 
         <div class="buttons__page">
-            <a class="link" href="/admin/reservas/create/">
+            <a class="link" href="/reservas/admin/create/">
                 <button class="reservas__boton boton--create boton">
                     Crear reserva
                 </button>
@@ -72,13 +72,13 @@
                     <p><%= reserva.disponibilidad %></p>
                 </section>
                 <section class="reservas__item-col">
-                    <button class="reservas__button"><a href="/admin/reservas/detalle/<%=reserva.id %>"><i class="reservas__icon fa-solid fa-eye"></i></a></button>
+                    <button class="reservas__button"><a href="/reservas/admin/detalle/<%=reserva.id %>"><i class="reservas__icon fa-solid fa-eye"></i></a></button>
                 </section>
                 <section class="reservas__item-col">
-                    <button class="reservas__button"><a href="/admin/reservas/edit/<%=reserva.id %>?_method=PUT" class="action-button edit"><i class="reservas__icon fa-solid fa-pen-to-square"></a></i></button>
+                    <button class="reservas__button"><a href="/reservas/admin/edit/<%=reserva.id %>?_method=PUT" class="action-button edit"><i class="reservas__icon fa-solid fa-pen-to-square"></a></i></button>
                 </section>
                 <section class="reservas__item-col">
-                    <form action="/admin/<%=reserva.id%>?_method=DELETE" method="POST" class="delete-form">
+                    <form action="/reservas/<%=reserva.id%>?_method=DELETE" method="POST" class="delete-form">
                         <button class="reservas__button action-button delete" data-reserva-id="<%= reserva.id %>"><i class="reservas__icon fa-solid fa-trash-can"></i></button>
                     </form>
                 </section>

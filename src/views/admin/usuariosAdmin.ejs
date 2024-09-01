@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+     <!--head partial-->
+     <%- include('../partials/head', {css:'/css/usuariosAdmin.css'}); %>
+     <!--fin partial-->
+</head>
+<body>
+    <main>
+      
+    <%- include('../partials/header'); %>
+    <section class="principal__section section--migadepan">
+      <div class="contenedor contenedor--migadepan">
+         <%- include('../partials/migaDePan', {local: 'panel usuarios'}); %> 
+      </div>
+    </section>
+  <!--CONTENIDO-->
+  <section class="gestion-usuarios__seccion seccion--usuarios">
+    <div class="contenedor">
+
+        <h1 class="gestion-usuarios__titulo-seccion">ADMINISTRACIÓN DE USUARIOS</h1>
+
+        <div class="botones__pagina">
+            <a class="enlace" href="/usuarios/admin/create">
+                <button class="gestion-usuarios__boton boton--crear boton">
+                    Crear usuario
+                </button>
+            </a>
+            <a class="enlace" href="#">
+                <button class="gestion-usuarios__boton boton--usuarios boton">
+                    Reservas
+                </button>
+            </a>
+        </div>
+
+        <article class="lista-usuarios usuarios--scroll">
+            <div class="lista-usuarios__item usuario--tamaño">
+                <section class="lista-usuarios__item-col item--encabezado">
+                    <p>ID</p>
+                </section>
+                <section class="lista-usuarios__item-col item--encabezado">
+                    <p>Nombre</p>
+                </section>
+                <section class="lista-usuarios__item-col item--encabezado">
+                    <p>Rol</p>
+                </section>
+                <section class="lista-usuarios__item-col item--encabezado">
+                    <p>Ver</p>
+                </section>
+                <section class="lista-usuarios__item-col item--encabezado">
+                    <p>Editar</p>
+                </section>
+                <section class="lista-usuarios__item-col item--encabezado">
+                    <p>Eliminar</p>
+                </section>
+            </div>
+            <% listaDeUsuarios.forEach((usuario) => { %>
+            <div class="lista-usuarios__item usuario--tamaño">
+                <section class="lista-usuarios__item-col">
+                    <p><%= usuario.idUsuario %></p>
+                </section>
+                <section class="lista-usuarios__item-col">
+                    <p><%= usuario.nombreCompleto %></p>
+                </section>
+                <section class="lista-usuarios__item-col">
+                    <p><%= usuario.nombreRol %></p>
+                </section>
+                <section class="lista-usuarios__item-col">
+                    <button class="lista-usuarios__boton"><a href="/usuarios/admin/detalle/<%=usuario.idUsuario %>"><i class="lista-usuarios__icono fa-solid fa-eye"></i></a></button>
+                </section>
+                <section class="lista-usuarios__item-col">
+                    <button class="lista-usuarios__boton"><a href="/usuarios/admin/edit/<%=usuario.idUsuario %>?_method=PUT" class="boton-accion editar"><i class="lista-usuarios__icono fa-solid fa-pen-to-square"></a></i></button>
+                </section>
+                <section class="lista-usuarios__item-col">
+                    <form action="/usuarios/<%=usuario.idUsuario%>?_method=DELETE"  method="POST" class="formulario-eliminar">
+                        <button class="lista-usuarios__boton boton-accion delete" data-usuario-id="<%= usuario.idUsuario %>" ><i class="lista-usuarios__icono fa-solid fa-trash-can"></i></button>
+                    </form>
+                </section>
+            </div>
+            <% }) %>
+        </article>
+    </div>
+</section>
+
+  <!--FIN CONTENIDO-->
+</main>
+    <%- include('../partials/footer'); %>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/botonEliminarUsers.js"></script> 
+  </body>
+</html>

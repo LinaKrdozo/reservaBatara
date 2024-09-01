@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!--head partial-->
+    <%- include('../partials/head', {css:'/css/creacionReservaAdmin.css'}); %>
+    <!--fin partial-->
+</head>
+<body>
+    <%- include('../partials/header'); %>
+    <section class="principal__section section--migadepan">
+      <div class="contenedor contenedor--migadepan">
+         <%- include('../partials/migaDePan', {local: 'registro usuarios'}); %> 
+      </div>
+    </section>
+
+    <h2 class="formulario__titulo">Formulario de usuarios Administrador</h2>
+    <section class="formulario">
+        <article class="formulario__contenido">
+            <img src="/img/formUsuarios.png" alt="imagenUsuario" class="formulario__imagen">
+        </article>
+        <article class="formulario__contenido">
+            <form action="/usuarios/admin" method="POST" enctype="multipart/form-data" class="formulario__form">
+                <div class="formulario__grupo">
+                    <label for="nombreCompleto" class="formulario__label">Nombre completo:
+                    <input type="text" id="nombreCompleto" name="nombreCompleto" class="formulario__input" placeholder="juan perez" required>
+                    </label>
+                </div>
+                <div class="formulario__grupo">
+                    <label for="correo" class="formulario__label">Correo:
+                    <input type="email" id="correo" name="correo" class="formulario__input" placeholder="ejemplo@mail.com" required>
+                    </label>
+                </div>
+                <div class="formulario__grupo">
+                    <label for="telefono" class="formulario__label">Teléfono:
+                    <input type="text" id="telefono" name="telefono" class="formulario__input" placeholder="123456" required>
+                    </label>
+                </div>
+                <div class="formulario__grupo">
+                    <label for="tipo_residente" class="formulario__label">Tipo de residente</label>
+                    <select name="tipo_residente" 
+                            class="formulario__input" >
+                        <option value="">Elige una opción</option>
+                        <%  
+                            let options = ['Propietario', 'Arrendatario'];
+                        %>
+                        <% for (const oneOption of options) { %>
+                        <option 
+                            value="<%= oneOption %>"
+                            <%= locals.oldData && locals.oldData.tipo_residente === oneOption ? 'selected' : '' %> >
+                            <%= oneOption %>
+                        </option>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="formulario__grupo" id="apartamento">
+                    <label for="apartamento" class="formulario__label">Número de Apartamento:</label>
+                    <input type="text" id="apartamento" name="apartamento" class="formulario__input" placeholder="123">
+                </div>
+                <div class="formulario__grupo">
+                    <label for="nombreRol" class="formulario__label">Rol:</label>
+                    <select id="nombreRol" name="nombreRol" class="formulario__input" required>
+                        <option value="" disabled selected>Seleccione un rol</option>
+                        <option value="administrador">Administrador</option>
+                        <option value="residente">Residente</option>
+                        <option value="particular">Particular</option>
+                    </select>
+                </div>
+                <div class="formulario__grupo" id="foto">
+                    <label for="foto" class="formulario__label">Foto Perfil:</label>
+                    <input type="file" id="foto" name="foto" class="formulario__input">
+                </div>
+                <div class="formulario__grupo">
+                    <label for="password" class="formulario__label">Contraseña:</label>
+                    <div class="contraseña-input">
+                      <input type="password" id="password" name="password" class="formulario__input" placeholder="contraseña" required>
+                      <input type="checkbox" id="showPassword" onchange="togglePasswordVisibility()">
+                      <label for="showPassword">Mostrar contraseña</label>
+                    </div>
+                </div>
+                <button type="submit" class="formulario__boton">Crear Usuario</button>
+            </form>
+        </article>
+    </section>
+    <%- include('../partials/footer'); %>
+   <script src="/js/script.js"></script> 
+</body>
+</html>
