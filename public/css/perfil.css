@@ -1,23 +1,37 @@
 /** >>>>>>>>>>>>>>>>>>>>>>>>>>> PERFIL DE USUARIO <<<<<<<< */
 
 .principal__section.section--perfil {
-    background-color: #e5e5e5; /* Fondo gris claro */
+    background-color: #e5e5e5; 
     padding: 40px 0;
 }
 
 .contenedor--perfil {
     display: flex;
-    flex-direction: row; /* Disposición en fila por defecto */
+    flex-direction: row; 
     justify-content: space-between;
     gap: 30px;
+    position: relative; 
+}
+
+.titleOne{
+    text-align: center;
+    padding-bottom: 45px;
+    font-size: 41px;
 }
 
 .perfil__card {
-    background-color: #ffffff; /* Fondo blanco para las tarjetas */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra de la tarjeta */
+    background-color: #ffffff; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     padding: 20px;
-    width: 100%;
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+
+.perfil__imagen{
+   width: 102%;
 }
 
 .perfil__card--izquierda {
@@ -27,94 +41,214 @@
 
 .perfil__card--derecha {
     flex: 2;
+    position: relative;
+    margin-top: 339px;
 }
 
-.perfil__imagen {
-    border-radius: 50%; /* Imagen circular */
-    width: 150px; /* Tamaño de la imagen */
-    height: 150px; /* Tamaño de la imagen */
-    object-fit: cover; /* Ajuste de la imagen */
+.datos__perfil{
+    padding-bottom: 66px;
+}
+
+.datos__button {
+    display: inline-block; 
+    margin-top: 20px; 
+    border: none;
+}
+
+.datos__button .button-profile-edit {
+    display: flex;
+    align-items: center; 
+    background-color: #f9a310; 
+    color: white; 
+    border: none; 
+    border-radius: 4px; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    text-decoration: none; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.2s; 
+}
+
+.datos__button .button-profile-edit:hover {
+    background-color: #be8c36; 
+}
+
+.datos__button .button-profile-edit:active {
+    transform: scale(0.98); 
+}
+
+.datos__button .button-profile-edit i {
+    margin-left: 8px; 
+    font-size: 18px; 
+}
+
+.card__reserva {
+    position: absolute; 
+    top: -1px;
+    left: 434px;
+    width: calc(64%); 
+    background-color: #ffffff; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 20px;
+    z-index: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card__reserva .contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card__reserva .fa-calendar {
+    font-size: 2rem;
+    color: #f9a310;
+    margin-bottom: 10px;
+}
+
+.card__reserva .titulo {
+    font-size: 1.5rem;
+    color: #14213d; 
+    margin-bottom: 10px;
+}
+
+.card__reserva .descripcion {
+    font-size: 1rem;
+    color: #666; 
     margin-bottom: 15px;
+    text-align: center;
 }
 
-.perfil__nombre {
-    font-size: 1.8rem; /* Tamaño del nombre del usuario */
-    color: #14213d; /* Color del nombre en azul oscuro */
-    margin-bottom: 5px;
+.card__reserva .card__button {
+    background-color: #f9a310; 
+    color: #ffffff; 
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
-.perfil__correo {
-    font-size: 1.2rem; /* Tamaño del correo electrónico */
-    color: #000000; /* Color del correo electrónico en negro */
+.card__button a{
+    color: white;
+}
+
+.cancelar-button {
+    background-color: #d9534f; 
+    color: white; 
+    border: none; 
+    border-radius: 4px; 
+    padding: 8px 16px; 
+    font-size: 14px; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.2s; 
+}
+
+
+.cancelar-button:hover {
+    background-color: #c9302c; 
+}
+
+.cancelar-button:active {
+    transform: scale(0.98); 
+}
+
+.cancelar-button:focus {
+    outline: none; 
+    box-shadow: 0 0 0 2px rgba(217, 83, 79, 0.5); 
+}
+
+/* Ajustar el tamaño del ícono en la sección de reservas */
+.card__reserva .fa-calendar {
+    font-size: 4.5rem; /* Reducir el tamaño del ícono */
+    color: #f9a310;
+    margin-bottom: 10px;
+}
+
+.link_reglas{
+    padding-top: 15px;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 .perfil__tabla-titulo {
-    font-size: 1.5rem; /* Tamaño del título de la tabla */
-    color: #14213d; /* Color del título en azul oscuro */
+    font-size: 1.5rem; 
+    color: #14213d; 
     margin-bottom: 15px;
     text-align: center;
 }
 
 .perfil__tabla {
     width: 100%;
-    border-collapse: collapse; /* Colapsar bordes de la tabla */
+    border-collapse: collapse; 
 }
 
 .perfil__tabla th, .perfil__tabla td {
-    border: 1px solid #ddd; /* Bordes de la tabla */
+    border: 1px solid #ddd; 
     padding: 10px;
-    text-align: left;
+    text-align: center;
 }
 
 .perfil__tabla th {
-    background-color: #f9a310; /* Fondo amarillo para los encabezados de la tabla */
-    color: #ffffff; /* Color del texto en los encabezados */
+    background-color: #f9a310; 
+    color: #ffffff; 
 }
 
 .perfil__tabla tr:nth-child(even) {
-    background-color: #ffffff; /* Fondo blanco para las filas pares */
+    background-color: #ffffff; 
 }
 
 .perfil__tabla tr:nth-child(odd) {
-    background-color: #f9f9f9; /* Fondo gris claro para las filas impares */
+    background-color: #f9f9f9; 
 }
 
 .perfil__tabla tr:hover {
-    background-color: #f1f1f1; /* Fondo gris claro para las filas al pasar el cursor */
+    background-color: #f1f1f1;
 }
 
 /** >>>>>>>>>>>>>>>>>>>>>>>>>>> MEDIA QUERIES <<<<<<<< */
 
 @media (max-width: 1024px) {
     .contenedor--perfil {
-        flex-direction: column; /* Apilar tarjetas verticalmente en pantallas medianas */
+        flex-direction: column; 
         gap: 20px;
     }
 
     .perfil__card {
-        max-width: 100%; /* Asegurarse de que las tarjetas usen el 100% del ancho en pantallas pequeñas */
+        max-width: 100%; 
+    }
+
+    .card__reserva {
+        position: static; 
+        width: auto; 
+        margin-bottom: 20px; 
     }
 }
 
 @media (max-width: 768px) {
     .perfil__imagen {
-        width: 120px; /* Reducir tamaño de la imagen en dispositivos móviles */
+        width: 120px;
         height: 120px;
     }
 
     .perfil__nombre {
-        font-size: 1.5rem; /* Reducir tamaño del texto en nombre */
+        font-size: 1.5rem; 
     }
 
     .perfil__correo {
-        font-size: 1rem; /* Reducir tamaño del texto en correo electrónico */
+        font-size: 1rem; 
     }
 
     .perfil__tabla-titulo {
-        font-size: 1.2rem; /* Reducir tamaño del título de la tabla */
+        font-size: 1.2rem; 
     }
 
     .perfil__tabla th, .perfil__tabla td {
-        padding: 8px; /* Reducir padding en la tabla para pantallas más pequeñas */
+        padding: 8px; 
     }
 }

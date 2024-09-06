@@ -17,10 +17,7 @@
     <section class="formulario">
         <article class="formulario__contenido">
             <form action="/reservas/user" method="POST" enctype="multipart/form-data" class="formulario__form">
-                <!--<div class="formulario__grupo">
-                    <label for="nombre" class="formulario__label">Nombre Completo:</label>
-                    <input type="text" id="nombre" name="nombre" class="formulario__input" placeholder="nombre completo" required>
-                </div>-->
+                
                 <div class="formulario__grupo">
                     <label for="fechaReserva" class="formulario__label">Fecha de reserva:
                         <div class="tooltip-container">
@@ -49,6 +46,46 @@
                     </label>
                 </div>
                 <div class="formulario__grupo">
+                    <label for="hora_inicio" class="formulario__label">Hora de Inicio:</label>
+                    <select id="hora_inicio" name="hora_inicio" class="formulario__input" required>
+                        <option value="08:00">08:00 AM</option>
+                        <option value="09:00">09:00 AM</option>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="11:00">11:00 AM</option>
+                        <option value="12:00">12:00 PM</option>
+                        <option value="13:00">01:00 PM</option>
+                        <option value="14:00">02:00 PM</option>
+                        <option value="15:00">03:00 PM</option>
+                        <option value="16:00">04:00 PM</option>
+                        <option value="17:00">05:00 PM</option>
+                        <option value="18:00">06:00 PM</option>
+                        <option value="19:00">07:00 PM</option>
+                        <option value="20:00">08:00 PM</option>
+                        <option value="21:00">09:00 PM</option>
+                        <option value="22:00">10:00 PM</option>
+                    </select>
+                </div>
+                <div class="formulario__grupo">
+                    <label for="hora_fin" class="formulario__label">Hora de Fin:</label>
+                    <select id="hora_fin" name="hora_fin" class="formulario__input" required>
+                        <option value="08:00">08:00 AM</option>
+                        <option value="09:00">09:00 AM</option>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="11:00">11:00 AM</option>
+                        <option value="12:00">12:00 PM</option>
+                        <option value="13:00">01:00 PM</option>
+                        <option value="14:00">02:00 PM</option>
+                        <option value="15:00">03:00 PM</option>
+                        <option value="16:00">04:00 PM</option>
+                        <option value="17:00">05:00 PM</option>
+                        <option value="18:00">06:00 PM</option>
+                        <option value="19:00">07:00 PM</option>
+                        <option value="20:00">08:00 PM</option>
+                        <option value="21:00">09:00 PM</option>
+                        <option value="22:00">10:00 PM</option>
+                    </select>
+                </div>
+                <div class="formulario__grupo">
                     <label for="cantidadHoras" class="formulario__label">Cantidad de horas:
                     <input type="number" id="cantidadHoras" name="cantidadHoras" class="formulario__input" placeholder="1" required>
                     </label>
@@ -58,12 +95,12 @@
                     <input type="text" id="descripcion" name="descripcion" class="formulario__input" placeholder="descripcion" required>
                     </label>
                 </div>
-                <div class="formulario__grupo" id="disponibilidad">
+                <div class="formulario__grupo">
                     <label for="disponibilidad" class="formulario__label">Disponibilidad:
-                    <select id="disponibilidad" name="disponibilidad" class="formulario__input" required>
-                        <option value="">Seleccione una opción</option>
+                    <select id="disponibilidad" name="disponibilidad" class="formulario__input" required disabled>
+                        <option value="pendiente" selected>Pendiente</option>
+                        <!-- Las otras opciones se deshabilitan, pero están presentes en el código para propósito de referencia o posibles cambios futuros -->
                         <option value="confirmada">Confirmada</option>
-                        <option value="pendiente">Pendiente</option>
                         <option value="cancelada">Cancelada</option>
                     </select>
                     </label>
@@ -75,6 +112,7 @@
                 <button type="submit" class="formulario__boton">Crear Reserva</button>
             </form>
         </article>
+        
         <article class="formulario__contenido">
             <img src="/img/reserva.png" alt="" class="formulario__imagen">
         </article>

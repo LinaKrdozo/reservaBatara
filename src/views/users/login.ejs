@@ -17,7 +17,7 @@
     
     <section class="formulario">
         <article class="formulario__contenido">
-            <form action="#" method="POST" enctype="multipart/form-data" class="formulario__form" >
+            <form action="/usuarios/inicioSesion" method="POST" class="formulario__form" >
                 <i class="fa-solid fa-circle-user formulario__icono"></i>
                 <div class="formulario__grupo">
                     <label for="correo" class="formulario__label">Correo Electrónico:</label>
@@ -34,8 +34,8 @@
                         <% } %>
                 </div>
                 <div class="formulario__grupo">
-                    <label for="contraseña" class="formulario__label">Contraseña:</label>
-                    <input type="password" id="contraseña" name="contraseña" class="formulario__input <%= locals.errors && errors.password ? 'is-invalid' : null %>" placeholder="contraseña" required>
+                    <label for="password" class="formulario__label">Contraseña:</label>
+                    <input type="password" id="password" name="password" class="formulario__input <%= locals.errors && errors.password ? 'is-invalid' : null %>" placeholder="contraseña">
                     <input type="checkbox" id="showPassword" onchange="togglePasswordVisibility()">
                     <label for="showPassword">Mostrar contraseña</label>
                     <div class="hidden_item help-message" id="password_error">

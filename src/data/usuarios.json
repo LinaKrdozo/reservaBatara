@@ -122,12 +122,22 @@
     },
     {
         "idUsuario": 12,
-        "nombreCompleto": "prueba",
+        "nombreCompleto": "juan perez",
         "correo": "prueba@mail.com",
         "telefono": "123456",
-        "foto": "img/imgUsuarios/imgUsuarios-1725059798396.jpg",
-        "apartamento": "",
-        "password": "12345",
-        "nombreRol": "residente"
+        "foto": "imgUsuarios-1725383586484.jpg",
+        "apartamento": "132",
+        "password": "$2a$10$kuu2pkInjE4BKsLxWbqkauC0Zr61mdAVMopXQR2WKRkidrCeKe3sa",
+        "nombreRol": "Residente"
+    },
+    {
+        "idUsuario": 13,
+        "nombreCompleto": "administrador",
+        "correo": "admin@mail.com",
+        "telefono": "123456",
+        "foto": "imgUsuarios-1725383643413.png",
+        "apartamento": "123",
+        "password": "$2a$10$KsJxA.mEiw9UPjF660k7Ru098h.GGa5zhQeKsGeEg2EP4YtcWHeEu",
+        "nombreRol": "Administrador"
     }
 ]

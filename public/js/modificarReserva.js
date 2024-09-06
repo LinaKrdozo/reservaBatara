@@ -5,7 +5,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const fechaReservaInput = document.getElementById('fechaReserva');
     const fechaEventoInput = document.getElementById('fechaEvento');
     const asistentesInput = document.getElementById('asistentes');
+    const horaInicio = document.getElementById('hora_inicio');
+    const horaFin = document.getElementById('hora_fin');
+    const cantidadHoras = document.getElementById('cantidadHoras');
 
+    // Función para calcular la diferencia en horas entre hora de inicio y fin
+    function calcularHoras() {
+        const inicio = horaInicio.value;
+        const fin = horaFin.value;
+
+        if (inicio && fin) {
+            const [inicioHoras, inicioMinutos] = inicio.split(':').map(Number);
+            const [finHoras, finMinutos] = fin.split(':').map(Number);
+
+            const horaInicioDate = new Date(2000, 0, 1, inicioHoras, inicioMinutos);
+            const horaFinDate = new Date(2000, 0, 1, finHoras, finMinutos);
+
+            // Calcula la diferencia en horas y asegura que no sea negativa
+            const diferenciaHoras = Math.max(0, (horaFinDate - horaInicioDate) / (1000 * 60 * 60));
+            cantidadHoras.value = diferenciaHoras;
+        } else {
+            cantidadHoras.value = '';
+        }
+    }
 
      // Función para ajustar el máximo permitido de asistentes basado en el tipo de evento
      function actualizarMaximoAsistentes() {
@@ -76,6 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
         actualizarMaximoAsistentes();
     });
     disponibilidadSelect.addEventListener('change', manejarCambioDisponibilidad);
+    horaInicio.addEventListener('change', calcularHoras);
+    horaFin.addEventListener('change', calcularHoras);
     fechaReservaInput.addEventListener('change', actualizarFechaEvento);
     
     updateFotoPagoVisibility();

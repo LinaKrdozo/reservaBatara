@@ -28,7 +28,7 @@ let usuariosService = {
 
     findByField: function(campo, texto){
         
-        let usuarioEncontrado = this.usuarios.find(unUsuario=> unUsuario[campo] === texto);
+        let usuarioEncontrado = this.usuarios.find(usuario=> usuario[campo] === texto);
         return usuarioEncontrado;
     },
 

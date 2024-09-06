@@ -70,6 +70,11 @@ body {
     font-size: 17px;
 }
 
+.foto-perfil{
+    display: flex;
+    align-items: center;
+  }
+
 .encabezado__nav-link:hover {
     background-color: #f9a310; 
 }
@@ -115,6 +120,11 @@ body {
 .foto-perfil{
     display: flex;
     align-items: center;
+    padding-top: 0px;
+}
+
+.img__perfil{
+    margin-right: 10px;
 }
 
 .lista--migadepan {

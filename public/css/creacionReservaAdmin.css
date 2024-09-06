@@ -1,4 +1,32 @@
 /* Estilos generales para el formulario */
+.horarios-disponibles {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.horarios-disponibles h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+}
+
+.horarios-disponibles table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.horarios-disponibles th, .horarios-disponibles td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.horarios-disponibles th {
+    background-color: #f4f4f4;
+}
+
 .formulario {
     display: flex;
     justify-content: space-between;
@@ -10,7 +38,6 @@
 
 .formulario__contenido {
     flex: 1;
-    padding: 0 20px;
 }
 
 .formulario__imagen {

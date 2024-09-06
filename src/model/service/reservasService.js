@@ -37,9 +37,12 @@ let reservasService = {
         let NuevaReserva = {
             id: idIncrementado,
             fechaReserva: reserva.fechaReserva,
+            fechaEvento: reserva.fechaEvento,
             asistentes: reserva.asistentes,
             tipo_evento: reserva.tipo_evento,
             descripcion: reserva.descripcion,
+            hora_inicio: reserva.hora_inicio,
+            hora_fin: reserva.hora_fin,
             cantidadHoras: reserva.cantidadHoras,
             fotoPago: reserva.fotoPago,
             disponibilidad: reserva.disponibilidad
@@ -57,12 +60,15 @@ let reservasService = {
         
         if (buscarReserva) {
             buscarReserva.fechaReserva = formReservaActualizacion.fechaReserva;
+            buscarReserva.fechaEvento = formReservaActualizacion.fechaEvento;
             buscarReserva.asistentes = formReservaActualizacion.asistentes;
             buscarReserva.tipo_evento = formReservaActualizacion.tipo_evento;
             buscarReserva.descripcion = formReservaActualizacion.descripcion;
             if (formReservaActualizacion.fotoPago) {
                 buscarReserva.fotoPago = formReservaActualizacion.fotoPago;
             }
+            buscarReserva.hora_inicio = formReservaActualizacion.hora_inicio;
+            buscarReserva.hora_fin = formReservaActualizacion.hora_fin;
             buscarReserva.cantidadHoras = formReservaActualizacion.cantidadHoras;
             buscarReserva.disponibilidad = formReservaActualizacion.disponibilidad;
         }

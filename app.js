@@ -1,9 +1,24 @@
 const express = require('express');
-const app = express();
+const session = require("express-session");
+const cookies = require('cookie-parser');
 const path = require('path');
 const methodOverride =  require('method-override');
 const mainRouter = require('./src/routes/index.routes');
 const vistasInfoRouter = require('./src/routes/vistasInfo.routes')
+
+const app = express();
+
+const userloggedMid = require('./src/middlewares/userLoggedMid')
+
+app.use(session({
+  secret: "shhh, It's a secret",
+  resave: false,
+  saveUninitialized:false,
+}));
+
+app.use(cookies());
+
+app.use(userloggedMid);
 
 
 app.use(express.json());
