@@ -11,19 +11,32 @@
               
 
              
-                    <% if (locals.isLogged && locals.userLogged.nombreRol == "Administrador"){%>
+                    <% if (locals.isLogged && locals.userLogged.rol_idRol == 1){%>
                         <li><a href="/usuarios/panelAdmin" class="encabezado__nav-link">Admin</a></li>
                     <% } %>
 
-                    <% if (locals.isLogged){%>
-                        <li><a href="/usuarios/perfil" class="encabezado__nav-link foto-perfil"><img class="img__perfil" src="/img/imgUsuarios/<%= locals.userLogged.foto %>" width="20" height="20" style=" border-radius:100%;"><%= locals.userLogged.nombreCompleto %></a></li>
-                        <li><a href="/usuarios/logout" class="encabezado__nav-link"><i class="fa-solid fa-right-from-bracket"></i></a></li>
-                        
-
-                    <% } else {%>
+                    <% if (locals.isLogged) { %>
+                        <% if (locals.userLogged.rol_idRol == 1) { %>
+                            <li>
+                                <a href="/usuarios/perfil" class="encabezado__nav-link foto-perfil">
+                                    <img class="img__perfil" src="/<%= locals.userLogged.foto %>" width="20" height="20" style="border-radius:100%;">
+                                    <%= locals.userLogged.nombre_completo %>
+                                </a>
+                            </li>
+                        <% } else { %> <!-- Si no es administrador -->
+                            <li>
+                                <a href="/usuarios/perfil" class="encabezado__nav-link foto-perfil">
+                                    <img class="img__perfil" src="/img/imgUsuarios/<%= locals.userLogged.foto %>" width="20" height="20" style="border-radius:100%;">
+                                    <%= locals.userLogged.nombre_completo %>
+                                </a>
+                            </li>
+                        <% } %>
+                        <li>
+                            <a href="/usuarios/logout" class="encabezado__nav-link"><i class="fa-solid fa-right-from-bracket"></i></a>
+                        </li>
+                    <% } else { %>
                         <li><a href="/usuarios/registro" class="encabezado__nav-link">Regístrate</a></li>
                         <li><a href="/usuarios/login" class="encabezado__nav-link ingreso"><i class="fa-solid fa-circle-user"></i></a></li>
-                
                     <% } %>
 
                     <li><a href="/ubicacion" class="encabezado__nav-link"><i class="fa-solid fa-location-dot"></i></a></li>

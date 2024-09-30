@@ -1,12 +1,21 @@
 const usuarioService = require('../model/service/usuariosService')
 
-function userloggedMid(req,res,next){
+const userloggedMid = async (req, res, next) =>{
     res.locals.isLogged = false;
     let emailInCookie = req.cookies.userEmail
-    let userFromCookie = usuarioService.findByField('correo', emailInCookie);
- 
+    
      if (emailInCookie !== undefined) {
-          req.session.userLogged = userFromCookie;
+        try {
+            let userFromCookie = await userService.findByField(emailInCookie);
+            console.log("user from Cookie--> ", userFromCookie);
+            if (userFromCookie) {
+                req.session.userLogged = userFromCookie;
+            }
+        } catch (error) {
+            console.error("Error al buscar el usuario por cookie: ", error);
+        }
+
+        //req.session.userLogged = usuarioService.findByField(emailInCookie);
     }
 
     if (req.session.userLogged) {

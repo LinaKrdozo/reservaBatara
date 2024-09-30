@@ -21,6 +21,11 @@ router.post('/inicioSesion', usuariosController.loginProcess)
 
 //***** perfil de usuario *****/
 router.get('/perfil', uploadMulterUsers.single('foto'), authMid , usuariosController.perfil )
+
+//editar perfil usuario
+router.get('/perfil/edit/:id', usuariosController.editProfile); 
+router.put('/perfil/:id', uploadMulterUsers.single('foto') ,usuariosController.updateProfile); 
+
 //logout
 router.get('/logout', usuariosController.logout)
 

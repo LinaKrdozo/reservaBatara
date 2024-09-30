@@ -18,24 +18,26 @@
   <section class="detalle-reserva">
     <div class="card">
         <h2>Detalles del usuario</h2>
-        <p><strong>ID Usuario:</strong><%= usuario.idUsuario %></p>
-        <p><strong>Nombre:</strong> <%= usuario.nombreCompleto %></p>
+        <p><strong>ID Usuario:</strong><%= usuario.idUsuarios %></p>
+        <p><strong>Nombre:</strong> <%= usuario.nombre_completo %></p>
         <p><strong>correo:</strong><%= usuario.correo %></p>
         <p><strong>teléfono:</strong> <%= usuario.telefono %></p>
-        <% if (usuario.residente === 1) { 
-          usuario.residente = "si"; 
-        %>
+        <p><strong>Tipo de residente:</strong> <%= usuario.tipo_residente %></p>
         <p><strong>apartamento:</strong> <%= usuario.apartamento %></p>
-        <% 
-        } else if (usuario.residente === 0) { 
-          usuario.residente = "no"; 
-          usuario.apartamento = "no es residente"; 
-        %>
-        <p><strong>apartamento:</strong> <%= usuario.apartamento %></p>
-        <% } %>
         <p><strong>Foto de perfil:</strong></p>
           <img src="/<%= usuario.foto %>" alt="Foto" class="detalle-reserva__foto">
-        <p><strong>Rol:</strong> <%= usuario.nombreRol %></p>
+        <section>
+                
+          <% let roles = ""; %>
+          <% if (usuario.rol_idRol === 1) { %> 
+              <% roles = "Administrador"; %>
+          <% } else if (usuario.rol_idRol === 2) { %>
+              <% roles = "Residente"; %>
+          <% } else if (usuario.rol_idRol === 3) { %>
+              <% roles = "Particular"; %>
+          <% } %>
+          <p><strong>Rol:</strong> <%= roles %></p>
+  </section>
         <div class="actions">
           <a href="/usuarios" class="confirm">Confirmar</a>
       </div>

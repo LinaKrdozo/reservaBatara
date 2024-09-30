@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "nombreMiembro": "Administración",
+        "claseIcono":"fa-solid fa-user-tie",
+        "descripcion":"Entre las  funciones de la administración podemos destacar: Gestionar de forma eficiente los recursos locativos y financieros de nuestro conjunto; coordina, apoya y supervisa las diferentes actividades",
+        "anuncio": true    
+    },
+    {
+        "id": 2,
+        "nombreMiembro": "Comite de convivencia",
+        "claseIcono":"fa-solid fa-handshake",
+        "descripcion":"Su principal función es ser un mediador de resolución de conflictos. De este modo, se encarga de garantizar una correcta y placentera convivencia entre todas las personas que hacen vida en la copropiedad.",
+        "anuncio": true    
+    },
+    {
+        "id": 3,
+        "nombreMiembro": "Concejo de administración",
+        "claseIcono":"fa-solid fa-users",
+        "descripcion":"El consejo de administración tiene como funciones principales la coordinación, administración y asesoramiento de la administración de turno en una propiedad horizontal.",
+        "anuncio": true    
+    }
+
+]

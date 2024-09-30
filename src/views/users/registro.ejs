@@ -20,20 +20,20 @@
         </article>
 
         <article class="formulario__contenido">
-            <form action="/usuarios/registro" method="POST" enctype="multipart/form-data" class="formulario__form" novalidate>
+            <form action="/usuarios/registro" method="POST" enctype="multipart/form-data" class="formulario__form" >
                 
                 <div class="formulario__grupo">
-                    <label for="nombreCompleto" class="formulario__label">Nombre Completo:</label>
-                    <input type="text" id="nombreCompleto" name="nombreCompleto" 
-                           class="formulario__input <%= locals.errors && errors.nombreCompleto ? 'is-invalid' : null %>" 
+                    <label for="nombre_completo" class="formulario__label">Nombre Completo:</label>
+                    <input type="text" id="nombre_completo" name="nombre_completo" 
+                           class="formulario__input <%= locals.errors && errors.nombre_completo ? 'is-invalid' : null %>" 
                            placeholder="nombre completo"
-                           value="<%= locals.oldData ? oldData.nombreCompleto : null %>" >
+                           value="<%= locals.oldData ? oldData.nombre_completo : null %>" >
                     
-                    <% if(locals.errors && errors.nombreCompleto){ %>
+                    <% if(locals.errors && errors.nombre_completo){ %>
                         <div class="error-container">
                             <i class="fas fa-exclamation-circle warning-ico"></i>
                             <div class="text-danger">
-                                <%= errors.nombreCompleto.msg %>
+                                <%= errors.nombre_completo.msg %>
                             </div>
                         </div>
                     <% } %>

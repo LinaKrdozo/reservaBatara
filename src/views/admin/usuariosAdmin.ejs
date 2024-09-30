@@ -57,23 +57,32 @@
             <% listaDeUsuarios.forEach((usuario) => { %>
             <div class="lista-usuarios__item usuario--tamaño">
                 <section class="lista-usuarios__item-col">
-                    <p><%= usuario.idUsuario %></p>
+                    <p><%= usuario.idUsuarios %></p>
                 </section>
                 <section class="lista-usuarios__item-col">
-                    <p><%= usuario.nombreCompleto %></p>
+                    <p><%= usuario.nombre_completo %></p>
                 </section>
                 <section class="lista-usuarios__item-col">
-                    <p><%= usuario.nombreRol %></p>
+                
+                    <% let rolUsuario = ""; %>
+                    <% if (usuario.rol_idRol === 1) { %>
+                        <% rolUsuario = "Administrador"; %>
+                    <% } else if (usuario.rol_idRol === 2) { %>
+                        <% rolUsuario = "Residente"; %>
+                    <% } else if (usuario.rol_idRol === 3) { %>
+                        <% rolUsuario = "Particular"; %>
+                    <% } %>
+                    <p name="<%= usuario.idRol %>"><%= rolUsuario %></p>
+            </section>
+                <section class="lista-usuarios__item-col">
+                    <button class="lista-usuarios__boton"><a href="/usuarios/admin/detalle/<%=usuario.idUsuarios %>"><i class="lista-usuarios__icono fa-solid fa-eye"></i></a></button>
                 </section>
                 <section class="lista-usuarios__item-col">
-                    <button class="lista-usuarios__boton"><a href="/usuarios/admin/detalle/<%=usuario.idUsuario %>"><i class="lista-usuarios__icono fa-solid fa-eye"></i></a></button>
+                    <button class="lista-usuarios__boton"><a href="/usuarios/admin/edit/<%=usuario.idUsuarios %>?_method=PUT" class="boton-accion editar"><i class="lista-usuarios__icono fa-solid fa-pen-to-square"></a></i></button>
                 </section>
                 <section class="lista-usuarios__item-col">
-                    <button class="lista-usuarios__boton"><a href="/usuarios/admin/edit/<%=usuario.idUsuario %>?_method=PUT" class="boton-accion editar"><i class="lista-usuarios__icono fa-solid fa-pen-to-square"></a></i></button>
-                </section>
-                <section class="lista-usuarios__item-col">
-                    <form action="/usuarios/<%=usuario.idUsuario%>?_method=DELETE"  method="POST" class="formulario-eliminar">
-                        <button class="lista-usuarios__boton boton-accion delete" data-usuario-id="<%= usuario.idUsuario %>" ><i class="lista-usuarios__icono fa-solid fa-trash-can"></i></button>
+                    <form action="/usuarios/<%=usuario.idUsuarios%>?_method=DELETE"  method="POST" class="formulario-eliminar">
+                        <button class="lista-usuarios__boton boton-accion delete" data-usuario-id="<%= usuario.idUsuarios %>" ><i class="lista-usuarios__icono fa-solid fa-trash-can"></i></button>
                     </form>
                 </section>
             </div>

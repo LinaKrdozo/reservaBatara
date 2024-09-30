@@ -15,19 +15,23 @@
           </section>
 
           <section class="principal__section section--perfil">
-            <h2 class="titleOne">Hola <%= usuario.nombreCompleto %>
+            <h2 class="titleOne">Hola <%= usuario.nombre_completo %>
             </h2>
             <div class="contenedor contenedor--perfil">
                 
-                <div class="perfil__card perfil__card--izquierda">
-                    <img src="/img/imgUsuarios/<%= usuario.foto %>" alt="Foto de perfil" class="perfil__imagen">
+                <div class="perfil__card--izquierda">
+                    <% if (usuario.rol_idRol === 1) { %> 
+                        <img src="/<%= usuario.foto %>" alt="Foto de perfil (Admin)" class="perfil__imagen">
+                    <% } else { %> 
+                        <img src="/img/imgUsuarios/<%= usuario.foto %>" alt="Foto de perfil" class="perfil__imagen">
+                    <% } %>
                     <div class="datos__perfil">
-                        <h1 class="perfil__nombre"><%= usuario.nombreCompleto %></h1>
+                        <h1 class="perfil__nombre"><%= usuario.nombre_completo %></h1>
                         <p class="perfil__correo"><%= usuario.correo %></p>
                         <p class="perfil__telefono"><%= usuario.telefono %></p>
                         <button class="datos__button">
                             <a
-                                href="#"
+                                href="/usuarios/perfil/edit/<%=usuario.idUsuarios%>?_method=PUT"
                                 class="button-profile-edit">Editar Perfil<i
                                 class="compra__icon fa-solid fa-pen-to-square"></i>
                             </a>
@@ -40,59 +44,55 @@
                         <i class="fa-solid fa-calendar"></i>
                         <h2 class="titulo"><strong>Reserva salon social</strong></h2>
                         <p class="descripcion">Acá usted podrá reservar el salón social, esta solicitud se debe hacer con 8 días de anticipación llenando el formulario que encontrara a continuación:</p> 
-                        <button class="card__button"><a href="/reservas/user/create/">Reserva</a></button>
+                        <button class="card__button"><a href="/reservas/perfil/create">Reserva</a></button>
                         <a class="link_reglas" href="/documentos/reglasSalonSocial.pdf" target="_blank">Leer condiciones para alquilar el salón</a>
                     </div>
                 </article>
     
-                <div class="perfil__card perfil__card--derecha">
+                <div class="perfil__card--derecha">
                     <h2 class="perfil__tabla-titulo">Historial de Reservas</h2>
+                    <div class="tabla__scroll">
                     <table class="perfil__tabla">
                         <thead>
-                            <tr>
+                            <tr class="cabecero">
                                 <th>ID</th>
-                                <th>fecha</th>
-                                <th>descripción</th>
+                                <th>fecha Evento</th>
                                 <th>tipo de evento</th>
+                                <th>Disponibilidad</th>
                                 <th>Acción</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>01/01/9999</td>
-                                <td>Cumpleaños</td>
-                                <td>otro</td>
-                                <td><button class="ver-button">ver</button><button class="cancelar-button">Cancelar</button></td> <!-- Botón en cada fila -->
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>01/01/9999</td>
-                                <td>Junta</td>
-                                <td>educativo</td>
-                                <td><button class="ver-button">ver</button><button class="cancelar-button" >Cancelar</button></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>01/01/9999</td>
-                                <td>baby shower</td>
-                                <td>otro</td>
-                                <td><button class="ver-button">ver</button><button class="cancelar-button" >Cancelar</i></button></td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>01/01/9999</td>
-                                <td>Cumpleaños</td>
-                                <td>didactico</td>
-                                <td><button class="ver-button">ver</button><button class="cancelar-button">Cancelar</button></td>
-                            </tr>
+                            <% reservasEnPerfil.forEach((reserva,index)=> { %>
+                                <tr>
+                                    <th scope="row">
+                                        <%= index + 1 %>
+                                    </th>
+                                    <td><%= reserva.fecha_evento %> </td>
+                                    <td><%= reserva.tipo_evento %> </td>
+                                    <td><%= reserva.disponibilidad %> </td>
+                                    <td><a class="btn btn-warning btn-sm"
+                                            href="/reservas/perfil/detalle/<%=reserva.idReserva %>">
+                                            <i class=" ver-button fas fa-eye"></i>
+                                        </a>
+                                        <a class="btn-delete">
+                                            <form action="/reservas/<%=reserva.idReserva%>?_method=DELETE" method="POST" class="delete-form">
+                                                <button class="delete" data-reserva-id="<%= reserva.idReserva %>"><i class="reservas__icon fa-solid fa-trash-can"></i></button>
+                                            </form>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <% }); %>
                         </tbody>
                     </table>
+                   </div>
                 </div>
             </div>
         </section>
     
     </section>
     <%- include('../partials/footer'); %>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/botonEliminar.js"></script> 
 </body>
 </html>

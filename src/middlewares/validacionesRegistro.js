@@ -3,7 +3,7 @@ const { body } = require('express-validator');
 
 
 const validations = [
-    body('nombreCompleto')
+    body('nombre_completo')
         .notEmpty()
         .withMessage('Debes de ingresar tu nombre')
         .bail()

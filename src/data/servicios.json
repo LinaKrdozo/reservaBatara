@@ -3,25 +3,34 @@
         "id": 1,
         "nombreServicio": "piscina",
         "claseIcono":"fa-solid fa-water",
-        "descripcion":"Lorem ipsum dolor sit, amet consectetur adipisicing elit." 
+        "descripcion":"Horario:", 
+        "descripcion2":"Abierto de martes a domingo.", 
+        "descripcion3":"8:00 a.m. a 10:00 p.m.",
+        "descripcion4":"hay horarios específicos para el turco y jacuzzi."
     },
     {
         "id": 2,
         "nombreServicio": "gimnasio",
         "claseIcono":"fa-solid fa-heart-pulse",
-        "descripcion":"Lorem ipsum dolor sit, amet consectetur adipisicing elit."
+        "descripcion":"Horario:", 
+        "descripcion2":"Abierto de Lunes a sabado.", 
+        "descripcion3":"5:00 a.m. a 9:00 p.m.",
+        "descripcion4":"Los domingos no se puede garantizar la desinfección."
     },
     {
         "id": 3,
         "nombreServicio": "parque infantil",
         "claseIcono":"fa-solid fa-futbol",
-        "descripcion":"Lorem ipsum dolor sit, amet consectetur adipisicing elit."  
+        "descripcion":"Los juegos infantiles son solo para niños menores de 12 años, deben estar acompañados por un adulto. El conjunto no se hace responsable de accidentes y el personal puede retirar a niños sin supervisión."  
     },
     {
         "id": 4,
         "nombreServicio": "salon social",
         "claseIcono":"fa-solid fa-users",
-        "descripcion":"Lorem ipsum dolor sit, amet consectetur adipisicing elit."   
+        "descripcion":"Salón social : ",
+        "descripcion2":"En servicio",   
+        "descripcion3":"Reservas oficina de administración",
+        "descripcion4": "Tambien puedes realizar tu reserva registrandote en nuestra pagina web"   
     }
 
 ]

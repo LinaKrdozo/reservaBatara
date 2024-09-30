@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!--head partial-->
+    <%- include('../partials/head', {css:'/css/creacionReservaAdmin.css'}); %>
+    <!--fin partial-->
+</head>
+<body>
+    <%- include('../partials/header'); %>
+    <section class="principal__section section--migadepan">
+      <div class="contenedor contenedor--migadepan">
+         <%- include('../partials/migaDePan', {local: 'Editar perfil'}); %> 
+      </div>
+    </section>
+
+    <h2 class="formulario__titulo">Editar Perfil </h2>
+    <section class="formulario">
+        <article class="formulario__contenido">
+            <form action="/usuarios/perfil/<%=usuario.idUsuarios%>?_method=PUT" method="POST" enctype="multipart/form-data" class="formulario__form">
+                
+                <div class="formulario__grupo">
+                    <label for="nombreCompleto" class="formulario__label">Nombre Completo:
+                    <input type="text" id="nombre_completo" name="nombre_completo" class="formulario__input" value="<%= usuario.nombre_completo %>" required>
+                    </label>
+                </div>
+                <div class="formulario__grupo">
+                    <label for="correo" class="formulario__label">Correo:
+                    <input type="email" id="correo" name="correo" class="formulario__input" value="<%= usuario.correo%>" placeholder="ejemplo@mail.com" required>
+                    </label>
+                </div>
+                <div class="formulario__grupo">
+                    <label for="telefono" class="formulario__label">Teléfono:
+                    <input type="text" id="telefono" name="telefono" class="formulario__input" value="<%= usuario.telefono%>" placeholder="123456" required>
+                    </label>
+                </div>
+                <div class="formulario__grupo">
+                    <label for="tipo_residente" class="formulario__label">tipo de residente</label>
+                    <select id="tipo_residente" name="tipo_residente" class="formulario__input">
+                        <option value="propietario" <%= usuario.residente === 'propietario' ? 'selected' : '' %>>Propietario</option>
+                        <option value="arrendatario" <%= usuario.residente === 'arrendatario' ? 'selected' : '' %>>Arrendatario</option>
+                    </select>
+                </div>
+                <div class="formulario__grupo" id="apartamento">
+                    <label for="apartamento" class="formulario__label">Número de Apartamento:</label>
+                    <input type="text" id="apartamento" name="apartamento" value="<%= usuario.apartamento %>" class="formulario__input" placeholder="0">
+                </div>
+                <div class="formulario__grupo" id="foto">
+                    <label for="foto" class="formulario__label">Foto de Perfil:</label>
+                    <% if (usuario.rol_idRol === 1) { %> 
+                        <img src="/<%= usuario.foto %>" alt="Foto de perfil (Admin)" class="perfil__imagen">
+                    <% } else { %> 
+                        <img src="/img/imgUsuarios/<%= usuario.foto %>" alt="Foto de perfil" class="perfil__imagen">
+                    <% } %>
+                    <input type="file" id="foto" name="foto" class="formulario__input">
+                </div>
+                
+                <button type="submit" class="formulario__boton">Editar</button>
+            </form>
+        </article>
+        <article class="formulario__contenido">
+            <img src="/img/modificarReserva.png" alt="" class="formulario__imagen">
+        </article>
+    </section>
+    <%- include('../partials/footer'); %>
+</body>
+</html>

@@ -39,10 +39,10 @@
                     <p>ID</p>
                 </section>
                 <section class="reservas__item-col item--header">
-                    <p>Fecha reserva</p>
+                    <p>Fecha evento</p>
                 </section>
                 <section class="reservas__item-col item--header">
-                    <p>Asistentes</p>
+                    <p>Tipo de evento</p>
                 </section>
                 <section class="reservas__item-col item--header">
                     <p>Disponibilidad</p>
@@ -60,26 +60,26 @@
             <% listaDeReservas.forEach((reserva) => { %>
             <div class="reservas__item reservas--size">
                 <section class="reservas__item-col">
-                    <p><%= reserva.id %></p>
+                    <p><%= reserva.idReserva %></p>
                 </section>
                 <section class="reservas__item-col">
-                    <p><%= reserva.fechaReserva %></p>
+                    <p><%= reserva.fecha_evento %></p>
                 </section>
                 <section class="reservas__item-col">
-                    <p><%= reserva.asistentes %></p>
+                    <p><%= reserva.tipo_evento %></p>
                 </section>
                 <section class="reservas__item-col">
                     <p><%= reserva.disponibilidad %></p>
                 </section>
                 <section class="reservas__item-col">
-                    <button class="reservas__button"><a href="/reservas/admin/detalle/<%=reserva.id %>"><i class="reservas__icon fa-solid fa-eye"></i></a></button>
+                    <button class="reservas__button"><a href="/reservas/admin/detalle/<%=reserva.idReserva %>"><i class="reservas__icon fa-solid fa-eye"></i></a></button>
                 </section>
                 <section class="reservas__item-col">
-                    <button class="reservas__button"><a href="/reservas/admin/edit/<%=reserva.id %>?_method=PUT" class="action-button edit"><i class="reservas__icon fa-solid fa-pen-to-square"></a></i></button>
+                    <button class="reservas__button"><a href="/reservas/admin/edit/<%=reserva.idReserva %>?_method=PUT" class="action-button edit"><i class="reservas__icon fa-solid fa-pen-to-square"></a></i></button>
                 </section>
                 <section class="reservas__item-col">
-                    <form action="/reservas/<%=reserva.id%>?_method=DELETE" method="POST" class="delete-form">
-                        <button class="reservas__button action-button delete" data-reserva-id="<%= reserva.id %>"><i class="reservas__icon fa-solid fa-trash-can"></i></button>
+                    <form action="/reservas/<%=reserva.idReserva%>?_method=DELETE" method="POST" class="delete-form">
+                        <button class="reservas__button action-button delete" data-reserva-id="<%= reserva.idReserva %>"><i class="reservas__icon fa-solid fa-trash-can"></i></button>
                     </form>
                 </section>
             </div>

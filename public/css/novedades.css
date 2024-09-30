@@ -5,8 +5,9 @@
 }
 
 .imagen-principal__img {
-    max-width: 100%;
-    height: auto;
+    height: 543px;
+    width: 100%;
+    margin-top: -21px;
 }
 
 /* Contenido */
@@ -26,7 +27,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
     margin-bottom: 80px;
-    width: 72%;
+    width: 60%;
 }
 
 .novedades__item {
@@ -35,13 +36,15 @@
     padding: 15px;
     background-color: #f0f0f0;
     border-radius: 8px;
+    width: 94%;
 }
 
 .novedades__item-imagen {
-    width: 100%;
-    max-width: 100%; /* Ajusta el tamaño máximo de la imagen */
+    width: 95%;
+    /*max-width: 100%; /* Ajusta el tamaño máximo de la imagen */
     border-radius: 8px;
     margin-bottom: 10px; /* Espacio entre la imagen y el texto */
+    margin-left: 11px;
 }
 
 .novedades__item-titulo {

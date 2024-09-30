@@ -16,17 +16,17 @@
     <h2 class="formulario__titulo">Formulario de reserva </h2>
     <section class="formulario">
         <article class="formulario__contenido">
-            <form action="/reservas/user" method="POST" enctype="multipart/form-data" class="formulario__form">
+            <form action="/reservas/perfil" method="POST" enctype="multipart/form-data" class="formulario__form">
                 
                 <div class="formulario__grupo">
-                    <label for="fechaReserva" class="formulario__label">Fecha de reserva:
+                    <label for="fecha_reserva" class="formulario__label">Fecha de reserva:
                         <div class="tooltip-container">
-                            <input type="date" id="fechaReserva" name="fechaReserva" class="formulario__input reserva-inicial" placeholder="dd/mm/aaaa" required>
+                            <input type="date" id="fecha_reserva" name="fecha_reserva" class="formulario__input reserva-inicial" placeholder="dd/mm/aaaa" required>
                             <div class="tooltip">La reserva se debe hacer 8 dias antes del evento</div>
                         </div>
                     </label>
-                    <label for="fechaEvento" class="formulario__label">Fecha del Evento:
-                    <input type="date" id="fechaEvento" name="fechaEvento" class="formulario__input" placeholder="dd/mm/aaaa" readonly>
+                    <label for="fecha_evento" class="formulario__label">Fecha del Evento:
+                    <input type="date" id="fecha_evento" name="fecha_evento" class="formulario__input" placeholder="dd/mm/aaaa" readonly>
                     </label>
                 </div>
                 <div class="formulario__grupo">
@@ -86,8 +86,8 @@
                     </select>
                 </div>
                 <div class="formulario__grupo">
-                    <label for="cantidadHoras" class="formulario__label">Cantidad de horas:
-                    <input type="number" id="cantidadHoras" name="cantidadHoras" class="formulario__input" placeholder="1" required>
+                    <label for="cantidad_horas" class="formulario__label">Cantidad de horas:
+                    <input type="number" id="cantidad_horas" name="cantidad_horas" class="formulario__input" placeholder="1" required>
                     </label>
                 </div>
                 <div class="formulario__grupo">
@@ -97,17 +97,12 @@
                 </div>
                 <div class="formulario__grupo">
                     <label for="disponibilidad" class="formulario__label">Disponibilidad:
-                    <select id="disponibilidad" name="disponibilidad" class="formulario__input" required disabled>
-                        <option value="pendiente" selected>Pendiente</option>
-                        <!-- Las otras opciones se deshabilitan, pero están presentes en el código para propósito de referencia o posibles cambios futuros -->
-                        <option value="confirmada">Confirmada</option>
-                        <option value="cancelada">Cancelada</option>
-                    </select>
+                    <input type="text" id="disponibilidad" name="disponibilidad" class="formulario__input" placeholder="disponibilidad" value="pendiente" readonly>
                     </label>
                 </div>
                 <div class="formulario__grupo" id="fotoPago">
-                    <label for="fotoPago" class="formulario__label">Foto Pago:</label>
-                    <input type="file" id="fotoPago" name="fotoPago" class="formulario__input">
+                    <label for="foto_pago" class="formulario__label">Foto Pago:</label>
+                    <input type="file" id="foto_pago" name="foto_pago" class="formulario__input">
                 </div>
                 <button type="submit" class="formulario__boton">Crear Reserva</button>
             </form>

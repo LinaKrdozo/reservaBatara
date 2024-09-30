@@ -1,15 +1,71 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const tipoEventoSelect = document.getElementById('tipo_evento');
     const disponibilidadSelect = document.getElementById('disponibilidad');
-    const fotoPago = document.getElementById('fotoPago');
-    const fechaReservaInput = document.getElementById('fechaReserva');
-    const fechaEventoInput = document.getElementById('fechaEvento');
+    const fotoPago = document.getElementById('foto_pago');
+    const fechaReservaInput = document.getElementById('fecha_reserva');
+    const fechaEventoInput = document.getElementById('fecha_evento');
     const asistentesInput = document.getElementById('asistentes');
     const horaInicio = document.getElementById('hora_inicio');
     const horaFin = document.getElementById('hora_fin');
-    const cantidadHoras = document.getElementById('cantidadHoras');
+    const cantidadHoras = document.getElementById('cantidad_horas');
 
-    // Función para calcular la diferencia en horas entre hora de inicio y fin
+
+     async function obtenerFechasReservadas() {
+        try {
+            const response = await fetch('/api/reservas'); 
+            const data = await response.json();
+            return data.fechasReservadas;
+        } catch (error) {
+            console.error("Error al obtener fechas reservadas:", error);
+            return [];
+        }
+    }
+
+    async function bloquearFechas() {
+        const fechasReservadas = await obtenerFechasReservadas();
+        
+        const fechasReservadasFormateadas = fechasReservadas.map(fecha => ({
+            reserva: new Date(fecha.fechaReserva).toISOString().split('T')[0],
+            evento: new Date(fecha.fechaEvento).toISOString().split('T')[0]
+        }));
+    
+        fechaReservaInput.addEventListener('input', () => {
+            const fechaSeleccionada = fechaReservaInput.value;
+    
+            const reservasOcupadas = fechasReservadasFormateadas.filter(f => f.reserva === fechaSeleccionada);
+            if (reservasOcupadas.length > 0) {
+                alert('La fecha de reserva seleccionada ya está reservada. Elija otra fecha.');
+                fechaReservaInput.value = ''; 
+            }
+
+            if (fechaEventoInput.value) {
+                const eventosOcupados = fechasReservadasFormateadas.filter(f => f.evento === fechaEventoInput.value);
+                if (eventosOcupados.length > 0) {
+                    alert('La fecha del evento ya está reservada. Elija otra fecha.');
+                    fechaEventoInput.value = ''; 
+                }
+            }
+        });
+    
+        fechaEventoInput.addEventListener('input', () => {
+            const fechaSeleccionada = fechaEventoInput.value;
+
+            const eventosOcupados = fechasReservadasFormateadas.filter(f => f.evento === fechaSeleccionada);
+            if (eventosOcupados.length > 0) {
+                alert('La fecha del evento seleccionada ya está reservada. Elija otra fecha.');
+                fechaEventoInput.value = ''; 
+            }
+
+            if (fechaReservaInput.value) {
+                const reservasOcupadas = fechasReservadasFormateadas.filter(f => f.reserva === fechaReservaInput.value);
+                if (reservasOcupadas.length > 0) {
+                    alert('La fecha de reserva ya está ocupada por un evento. Elija otra fecha.');
+                    fechaReservaInput.value = ''; 
+                }
+            }
+        });
+    }
+
     function calcularHoras() {
         const inicio = horaInicio.value;
         const fin = horaFin.value;
@@ -21,7 +77,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             const horaInicioDate = new Date(2000, 0, 1, inicioHoras, inicioMinutos);
             const horaFinDate = new Date(2000, 0, 1, finHoras, finMinutos);
 
-            // Calcula la diferencia en horas y asegura que no sea negativa
             const diferenciaHoras = Math.max(0, (horaFinDate - horaInicioDate) / (1000 * 60 * 60));
             cantidadHoras.value = diferenciaHoras;
         } else {
@@ -29,7 +84,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     }
 
-    // Función para actualizar la visibilidad del campo Foto Pago basado en el tipo de evento
     function actualizarVisibilidadFotoPagoTipoEvento() {
         const valorSeleccionado = tipoEventoSelect.value;
 
@@ -38,11 +92,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
         } else if (valorSeleccionado === 'otro') {
             fotoPago.style.display = 'block';
         } else {
-            fotoPago.style.display = 'none'; // Opcional: Ocultar en caso de no seleccionar una opción válida
+            fotoPago.style.display = 'none'; 
         }
     }
 
-    // Función para actualizar la visibilidad del campo Foto Pago basado en la disponibilidad
     function manejarCambioDisponibilidad() {
         const valorSeleccionado = disponibilidadSelect.value;
 
@@ -53,7 +106,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     }
 
-    // Función para ajustar el máximo permitido de asistentes basado en el tipo de evento
     function actualizarMaximoAsistentes() {
         const tipoEvento = tipoEventoSelect.value;
         let maxAsistentes;
@@ -68,36 +120,31 @@ document.addEventListener('DOMContentLoaded', (event) => {
         asistentesInput.setAttribute('placeholder', `1-${maxAsistentes}`);
     }
 
-    // Establece la fecha mínima para la fecha de reserva (hoy menos un día)
     function establecerFechaMinimaReserva() {
         const hoy = new Date();
-        hoy.setUTCHours(0, 0, 0, 0); // Establece la hora a las 00:00:00 para asegurar que solo la fecha sea considerada
-        hoy.setDate(hoy.getDate() - 1); // Resta un día a la fecha actual
-        const hoyMenosUnDiaStr = hoy.toISOString().split('T')[0]; // Obtiene la fecha en formato YYYY-MM-DD
+        hoy.setUTCHours(0, 0, 0, 0); 
+        hoy.setDate(hoy.getDate() - 1);
+        const hoyMenosUnDiaStr = hoy.toISOString().split('T')[0]; 
         
         console.log("Fecha mínima establecida: " + hoyMenosUnDiaStr);
-        
-        // Asigna la fecha mínima en el formato correcto al input de la fecha de reserva
+
         fechaReservaInput.setAttribute('min', hoyMenosUnDiaStr);
     }
 
-    // Actualiza la fecha del evento agregando 8 días a la fecha de reserva
     function actualizarFechaEvento() {
         const fechaReserva = new Date(fechaReservaInput.value);
         
         if (!isNaN(fechaReserva.getTime())) {
             const fechaEvento = new Date(fechaReserva);
-            fechaEvento.setUTCDate(fechaReserva.getUTCDate() + 7); // Agrega 8 días a la fecha de reserva
-            const fechaEventoStr = fechaEvento.toISOString().split('T')[0]; // Obtiene la fecha en formato YYYY-MM-DD
+            fechaEvento.setUTCDate(fechaReserva.getUTCDate() + 7); 
+            const fechaEventoStr = fechaEvento.toISOString().split('T')[0]; 
             
-            // Asigna la fecha calculada al input de la fecha del evento
             fechaEventoInput.value = fechaEventoStr;
         } else {
-            fechaEventoInput.value = ''; // Limpia el valor si la fecha de reserva no es válida
+            fechaEventoInput.value = ''; 
         }
     }
 
-    // Event listeners para los cambios en los selectores y otros campos
     tipoEventoSelect.addEventListener('change', () => {
         actualizarVisibilidadFotoPagoTipoEvento();
         actualizarMaximoAsistentes();
@@ -107,8 +154,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     horaFin.addEventListener('change', calcularHoras);
     fechaReservaInput.addEventListener('change', actualizarFechaEvento);
 
-    // Inicializar el estado del campo Foto Pago, el límite de asistentes y la fecha del evento en base a las selecciones al cargar la página
     establecerFechaMinimaReserva();
+    bloquearFechas();
     actualizarVisibilidadFotoPagoTipoEvento();
     manejarCambioDisponibilidad();
     actualizarMaximoAsistentes();

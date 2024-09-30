@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const tipoEventoSelect = document.getElementById('tipo_evento');
     const disponibilidadSelect = document.getElementById('disponibilidad');
-    const fotoPago = document.getElementById('fotoPago');
-    const fechaReservaInput = document.getElementById('fechaReserva');
-    const fechaEventoInput = document.getElementById('fechaEvento');
+    const fotoPago = document.getElementById('foto_pago');
+    const fechaReservaInput = document.getElementById('fecha_reserva');
+    const fechaEventoInput = document.getElementById('fecha_evento');
     const asistentesInput = document.getElementById('asistentes');
     const horaInicio = document.getElementById('hora_inicio');
     const horaFin = document.getElementById('hora_fin');

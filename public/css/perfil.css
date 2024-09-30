@@ -2,7 +2,8 @@
 
 .principal__section.section--perfil {
     background-color: #e5e5e5; 
-    padding: 40px 0;
+    padding: 17px 0;
+    padding-bottom: 117px;
 }
 
 .contenedor--perfil {
@@ -19,34 +20,84 @@
     font-size: 41px;
 }
 
-.perfil__card {
-    background-color: #ffffff; 
-    border-radius: 8px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    padding: 20px;
-    flex: 1; 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
-}
-
 .perfil__imagen{
    width: 102%;
 }
 
 .perfil__card--izquierda {
-    flex: 1;
+    background-color: #ffffff; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 15px; /* Reduce padding */
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
     text-align: center;
 }
 
-.perfil__card--derecha {
-    flex: 2;
-    position: relative;
-    margin-top: 339px;
+.delete-form {
+    display: inline-block; /* Asegura que el botón no ocupe toda la línea */
 }
 
-.datos__perfil{
-    padding-bottom: 66px;
+.reservas__button {
+    background-color: #415787; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 10px 12px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+    display: flex; /* Flexbox para centrar el icono */
+    align-items: center; /* Centra el icono verticalmente */
+    justify-content: center; /* Centra el icono horizontalmente */
+}
+
+.reservas__button:hover {
+    background-color: #34495e; /* Color de fondo en hover */
+    transform: scale(1.05); /* Efecto de zoom */
+}
+
+.reservas__icon {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 18px;
+    font-size: 14px;
+    cursor: pointer;
+   
+}
+.delete{
+    border: none;
+}
+
+.perfil__card--derecha {
+    background-color: #ffffff; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 20px; /* Mantén un padding adecuado */
+    flex: 2; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    position: relative;
+    margin-top: 20px; /* Ajusta el margen superior */
+    margin-bottom: 236px; /* Ajusta el margen inferior */
+    top: 300px;
+}
+
+.tabla__scroll {
+    flex-grow: 1; 
+    overflow-y: auto; 
+    max-height: 300px;
+    margin-top: -7px;
+    border-radius: 6px; 
+}
+
+.datos__perfil {
+    padding-bottom: 30px; /* Reduce el padding inferior */
 }
 
 .datos__button {
@@ -85,8 +136,8 @@
 .card__reserva {
     position: absolute; 
     top: -1px;
-    left: 434px;
-    width: calc(64%); 
+    left: 426px;
+    width: calc(64.5%); 
     background-color: #ffffff; 
     border-radius: 8px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
@@ -146,7 +197,16 @@
     cursor: pointer; 
     transition: background-color 0.3s, transform 0.2s; 
 }
-
+.ver-button {
+    background-color: #415787; 
+    color: white; 
+    border: none; 
+    border-radius: 4px; 
+    padding: 8px 16px; 
+    font-size: 14px; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.2s; 
+}
 
 .cancelar-button:hover {
     background-color: #c9302c; 
@@ -159,6 +219,19 @@
 .cancelar-button:focus {
     outline: none; 
     box-shadow: 0 0 0 2px rgba(217, 83, 79, 0.5); 
+}
+
+.ver-button:hover {
+    background-color: #101155; 
+}
+
+.ver-button:active {
+    transform: scale(0.98); 
+}
+
+.ver-button:focus {
+    outline: none; 
+    box-shadow: 0 0 0 2px rgba(39, 39, 89, 0.5); 
 }
 
 /* Ajustar el tamaño del ícono en la sección de reservas */
@@ -185,7 +258,7 @@
 
 .perfil__tabla {
     width: 100%;
-    border-collapse: collapse; 
+    border-collapse: collapse;
 }
 
 .perfil__tabla th, .perfil__tabla td {
@@ -219,9 +292,9 @@
         gap: 20px;
     }
 
-    .perfil__card {
+    /*.perfil__card {
         max-width: 100%; 
-    }
+    }*/
 
     .card__reserva {
         position: static; 

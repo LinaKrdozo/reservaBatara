@@ -1,30 +1,30 @@
 [
     {
         "id": 1,
-        "titulo": "Título Prueba1",
-        "imagen":"img/imagenPrueba3.jpg",
-        "descripcion":"Lorem ipsum dolor sit, amet consectetur adipisicing elit." 
+        "titulo": "Shut de Basuras",
+        "imagen":"img/basuras.JPG",
+        "descripcion":"A todos los residentes les recordamos el manejo responsable de residuos y deshechos, mantengamos la copropiedad limpia." 
     },
     {
         
         "id": 2,
-        "titulo": "Título Prueba2",
-        "imagen":"img/imagenPrueba3.jpg",
-        "descripcion":"Lorem ipsum dolor sit, amet consectetur adipisicing elit." 
+        "titulo": "Tenencia responsable de mascotas",
+        "imagen":"img/mascotas.jpeg",
+        "descripcion":"Recuerda siempre recoger los desechos de tu mascota; es fundamental para mantener nuestra copropiedad limpia y agradable para todos." 
     },
     {
         
         "id": 3,
-        "titulo": "Título Prueba3",
-        "imagen":"img/imagenPrueba3.jpg",
-        "descripcion":"Lorem ipsum dolor sit, amet consectetur adipisicing elit." 
+        "titulo": "Pasillos Limpios",
+        "imagen":"img/pasillos.JPG",
+        "descripcion":"Se les recuerda a todos los residentes mantener los pasillos limpios y despejados es clave para la seguridad y comodidad de todos en la copropiedad." 
     },
     {
         
         "id": 4,
-        "titulo": "Título Prueba4",
-        "imagen":"img/imagenPrueba3.jpg",
-        "descripcion":"Lorem ipsum dolor sit, amet consectetur adipisicing elit." 
+        "titulo": "Parqueaderos para visitantes",
+        "imagen":"img/parqueaderos.JPG",
+        "descripcion":"A partir de la segunda noche que un mismo vehículo permanezca en el parqueadero de visitantes se cobrará el valor de $5.000 pesos por cada noche que pase en el parqueadero de visitantes del conjunto." 
     }
 
 ]
