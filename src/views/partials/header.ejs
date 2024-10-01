@@ -1,47 +1,39 @@
 <body>
     <header class="encabezado">
         <a href="/"><img src="/img/logo.png" alt="logo" class="encabezado__logo"></a>
+       
         <nav class="encabezado__nav">
             <ul>
-        
                 <li><a href="/" class="encabezado__nav-link">Inicio</a></li>
                 <li><a href="/servicios" class="encabezado__nav-link">Servicios</a></li>
                 <li><a href="/novedades" class="encabezado__nav-link">Novedades</a></li>
                 <li><a href="/documentos" class="encabezado__nav-link">Documentos</a></li>
-              
 
-             
-                    <% if (locals.isLogged && locals.userLogged.rol_idRol == 1){%>
-                        <li><a href="/usuarios/panelAdmin" class="encabezado__nav-link">Admin</a></li>
-                    <% } %>
+                <% if (locals.isLogged && locals.userLogged.rol_idRol == 1){%>
+                    <li><a href="/usuarios/panelAdmin" class="encabezado__nav-link">Admin</a></li>
+                <% } %>
 
-                    <% if (locals.isLogged) { %>
-                        <% if (locals.userLogged.rol_idRol == 1) { %>
-                            <li>
-                                <a href="/usuarios/perfil" class="encabezado__nav-link foto-perfil">
-                                    <img class="img__perfil" src="/img/imgUsuarios/<%= locals.userLogged.foto %>" width="20" height="20" style="border-radius:100%;">
-                                    <%= locals.userLogged.nombre_completo %>
-                                </a>
-                            </li>
-                        <% } else { %> 
-                            <li>
-                                <a href="/usuarios/perfil" class="encabezado__nav-link foto-perfil">
-                                    <img class="img__perfil" src="/img/imgUsuarios/<%= locals.userLogged.foto %>" width="20" height="20" style="border-radius:100%;">
-                                    <%= locals.userLogged.nombre_completo %>
-                                </a>
-                            </li>
-                        <% } %>
-                        <li>
-                            <a href="/usuarios/logout" class="encabezado__nav-link"><i class="fa-solid fa-right-from-bracket"></i></a>
-                        </li>
-                    <% } else { %>
-                        <li><a href="/usuarios/registro" class="encabezado__nav-link">Regístrate</a></li>
-                        <li><a href="/usuarios/login" class="encabezado__nav-link ingreso"><i class="fa-solid fa-circle-user"></i></a></li>
-                    <% } %>
+                <% if (locals.isLogged) { %>
+                    <li>
+                        <a href="/usuarios/perfil" class="encabezado__nav-link foto-perfil">
+                            <img class="img__perfil" src="/img/imgUsuarios/<%= locals.userLogged.foto %>" width="20" height="20" style="border-radius:100%;">
+                            <%= locals.userLogged.nombre_completo %>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/usuarios/logout" class="encabezado__nav-link"><i class="fa-solid fa-right-from-bracket"></i></a>
+                    </li>
+                <% } else { %>
+                    <li><a href="/usuarios/registro" class="encabezado__nav-link">Regístrate</a></li>
+                    <li><a href="/usuarios/login" class="encabezado__nav-link ingreso"><i class="fa-solid fa-circle-user"></i></a></li>
+                <% } %>
 
-                    <li><a href="/ubicacion" class="encabezado__nav-link"><i class="fa-solid fa-location-dot"></i></a></li>
-            
+                <li><a href="/ubicacion" class="encabezado__nav-link"><i class="fa-solid fa-location-dot"></i></a></li>
             </ul>
         </nav>
+        <button class="boton boton--hamburguesa menu-btn" id="menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
     </header>
+    <script src="/js/menu.js"></script> 
 </body>

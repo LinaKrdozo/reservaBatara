@@ -15,8 +15,7 @@ body {
     font-weight: 400;
     font-style: normal;
     list-style-type: none;
-    block-size: fit-content;
-    background-color: #e5e5e5; /* Color de fondo */
+    background-color: #e5e5e5; 
     color: #000000;
 }
 
@@ -46,7 +45,7 @@ body {
     margin-right: 20px; 
 }
 
-.encabezado__nav .fa-solid{
+.encabezado__nav .fa-solid {
     font-size: 1.2rem;
 }
 
@@ -70,122 +69,87 @@ body {
     font-size: 17px;
 }
 
-.foto-perfil{
+.foto-perfil {
     display: flex;
     align-items: center;
-  }
+}
 
 .encabezado__nav-link:hover {
     background-color: #f9a310; 
 }
 
-.fa-solid {
-    font-size: 3.2rem; 
-    margin-left: 5px;
-}
-.menu-btn {
-    display: none; 
-}
-
-.menu-btn__burger {
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-    margin: 5px 0;
-    transition: transform 0.3s ease;
-}
-
-.menu-btn__burger.active {
-    transform: rotate(45deg);
-}
-
-.menu-btn__burger::before,
-.menu-btn__burger::after {
-    content: '';
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-    position: absolute;
-    transition: transform 0.3s ease;
-}
-
-.menu-btn__burger::before {
-    transform: translateY(-8px);
-}
-
-.menu-btn__burger::after {
-    transform: translateY(8px);
-}
-
-.foto-perfil{
-    display: flex;
-    align-items: center;
-    padding-top: 0px;
-}
-
-.img__perfil{
-    margin-right: 10px;
+.contenedor--migadepan {
+    padding: 20px;
 }
 
 .lista--migadepan {
-    display: flex;
+    display: flex; 
     align-items: center;
-    padding: 30px 0;
-    margin: 0;
-    list-style-type: none;
+    padding: 20px 0;
+    color: #666;
 }
 
-.item__lista {
-    display: flex;
-    align-items: center;
-}
-
-.item__lista a {
-    text-decoration: none;
-    color: #666; /* Color del enlace */
-    font-weight: bold; /* Opcional: para destacar los enlaces */
-}
-
-.icono-casa{
-    font-size: 1.8rem;
-}
-.item__lista a:hover {
-    text-decoration: underline; /* Subrayar el enlace al pasar el cursor */
-}
-
-.item__separador {
-    margin: 0 10px; /* Espacio entre los elementos de la miga de pan */
-    color: #666; /* Color del separador */
+.lista--migadepan .item__lista {
+    display: flex; 
+    align-items: center; 
+    padding: 0 10px;
     font-size: 25px;
 }
 
-.item__actual {
-    color: #333; /* Color para el texto actual, no clickeable */
-    font-weight: normal; /* No negrita para el texto actual */
+.lista--migadepan .item__lista .fa-solid {
+    font-size: 1.5rem; 
+    margin-right: 5px; 
+    color: #666;
 }
+
+.lista--migadepan .item__lista:last-child {
+    font-size: 18px;
+}
+
+.item__separador{
+    margin: 14px;
+    color: #666;
+}
+
+.menu-btn {
+    display: none;
+}
+
+.menu-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2); 
+}
+
+.menu-btn i {
+    font-size: 24px; 
+    color: #ffffff; 
+}
+
+.img__perfil {
+    margin-right: 10px;
+}
+
 /** >>>>>>>>>>>>>>>>>>>>>>>>>>> FOOTER <<<<<<<< */
 
 .pie {
-    background-color: #14213d; /* Color de fondo del pie */
-    color: #ffffff; /* Color de texto en el pie */
+    background-color: #14213d;
+    color: #ffffff; 
     padding: 20px 0;
     text-align: center;
 }
 
-/* Logo en el pie de página */
 .pie__logo {
     margin-bottom: 20px;
 }
 
 .pie__logo-imagen {
-    width: 159px; /* Tamaño del logo ajustado */
+    width: 159px; 
 }
 
 .pie__titulo {
     margin-bottom: 10px;
 }
 
-.pie__descripcion{
+.pie__descripcion {
     display: flex;
     justify-content: center;
     margin: 13px;
@@ -204,13 +168,13 @@ body {
 
 .pie__lista-enlace {
     text-decoration: none;
-    color: #ffffff; /* Color del texto enlaces */
+    color: #ffffff;
     display: flex;
     align-items: center;
 }
 
 .pie__lista-enlace:hover {
-    color: #f9a310; /* Color del texto en hover */
+    color: #f9a310; 
 }
 
 .pie__lista-texto {
@@ -221,6 +185,8 @@ body {
     margin-top: 20px;
     font-size: 0.8rem;
 }
+
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>> MENU DESPLEGABLE <<<<<<<< */
 
 @media (max-width: 1024px) {
     .encabezado {
@@ -238,64 +204,76 @@ body {
 }
 
 @media (max-width: 768px) {
-    .encabezado__nav {
-        display: none; /* Ocultar navegación en tabletas y móviles */
-        position: absolute; /* Ajustar posición en pantalla pequeña */
-        top: 50px;
-        left: 0;
-        width: 100%;
-        background-color: #14213d; /* Color de fondo del menú desplegable */
-        text-align: center;
-        z-index: 1000;
-        flex-direction: column;
+    .menu-btn {
+        justify-content: center;
         align-items: center;
-        transform: translateY(-100%);
-        transition: transform 0.3s ease-in-out;
+        width: 50px;
+        height: 50px;
+        background-color: #14213d;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        outline: none;
+        transition: background-color 0.3s;
+        z-index: 1100;
     }
 
+    .menu-btn:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    .encabezado__nav {
+        display: none; 
+        position: absolute;
+        top: 60px; 
+        left: 0;
+        width: 100%;
+        background-color: #14213d; 
+        padding: 10px 0; 
+        z-index: 1000;  
+    }
+
+.encabezado__nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.encabezado__nav li {
+    margin: 0 10px;
+}
+
+.encabezado__nav-link {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.5s;
+    font-size: 17px;
+}
+
+
+
     .encabezado__nav.active {
-        transform: translateY(0);
+        display: flex; 
+        flex-direction: column; 
     }
 
     .encabezado__nav ul {
-        flex-direction: column;
+        padding: 0; 
+        margin: 0;
     }
 
     .encabezado__nav li {
-        margin: 10px 0;
-    }
-
-    .encabezado__nav-link {
-        padding: 10px 20px; /* Ajustar el padding para hacer clic más fácil en móviles */
-    }
-
-    .fa-solid {
-        margin-left: 0; /* Ajustar posición del ícono en menú móvil */
-        margin-right: 10px;
+        margin: 10px 0; 
+        text-align: center; 
     }
 
     .menu-btn {
-        display: block; /* Mostrar el botón en pantallas menores o iguales a 768px */
-        cursor: pointer;
-    }
-
-    .encabezado__nav.active {
-        transform: translateY(0);
-    }
-
-    .encabezado__logo {
-        margin: 10px 0 0 20px;
-    }
-
-    .pie__logo-imagen {
-        width: 60px; /* Reducir tamaño del logo en dispositivos móviles */
-    }
-
-    .pie__lista {
-        flex-wrap: wrap; /* Envolver elementos en varias líneas */
-    }
-
-    .pie__lista-item {
-        margin: 5px 10px; /* Ajustar margen de los elementos de la lista */
+        display: flex; 
+        margin-left: 90%;
+        margin-top: -50px;
+        padding-right: 6px;
     }
 }

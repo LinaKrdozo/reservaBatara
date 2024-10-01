@@ -44,14 +44,14 @@
     margin-right: 10px;
     font-size: 1.2rem;
 }
-/* Media queries para tabletas y celulares */
+
 @media (max-width: 768px) {
     
     .ubicacion {
         flex-direction: column;
         text-align: center;
     }
-
+ 
     .ubicacion__mapa,
     .ubicacion__info {
         margin-right: 0;

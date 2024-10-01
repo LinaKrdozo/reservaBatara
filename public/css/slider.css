@@ -3,17 +3,7 @@
 * {
 	box-sizing: border-box;
 }
-/* :root,
-body,
-* {
-	font-size: clamp(6pt, 1.1rem, 3vw);
-	margin: 0;
-	padding: 0;
-	-ms-overflow-style: none;
-	scrollbar-width: none;
-	letter-spacing: 0.1rem;
-	scroll-snap-type: inherit;
-} */
+
 :root::-webkit-scrollbar,
 body::-webkit-scrollbar {
 	display: none;

@@ -8,23 +8,22 @@
     padding: 20px;
     max-width: 1200px;
     margin: auto;
-    position: relative; /* Añadido para facilitar el posicionamiento absoluto del ícono */
+    position: relative; 
 }
 
 .formulario__icono {
     position: relative;
-    top: -31px; /* Ajustar la posición vertical del ícono */
-    left: 49%; /* Centrar horizontalmente el ícono */
-    transform: translateX(-50%); /* Ajustar la posición horizontal */
-    font-size: 7.5rem; /* Tamaño del ícono */
-    color: #14213d; /* Color del ícono */
-    background-color: #ffffff; /* Color de fondo del contenedor del ícono */
-    padding: 20px; /* Espacio interno del contenedor del ícono */
-    border-radius: 50%; /* Forma redondeada */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Sombra */
+    top: -31px; 
+    left: 49%; 
+    transform: translateX(-50%); 
+    font-size: 7.5rem; 
+    color: #14213d; 
+    background-color: #ffffff;
+    padding: 20px; 
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
 }
 
-/* Estilos adicionales para el formulario */
 
 .formulario__contenido {
     flex: 1;
@@ -40,8 +39,8 @@
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     width: 37%;
-    position: relative; /* Añadido para contener el ícono de usuario */
-    z-index: 1; /* Asegurar que el formulario esté sobre el ícono */
+    position: relative; 
+    z-index: 1; 
 }
 
 .formulario__titulo {
@@ -144,17 +143,22 @@
 }
 
 
-@media (max-width: 480px) {
-    .formulario__boton {
-        width: 100%;
-    }
-}
-
-/* Media queries para tabletas y celulares */
 @media (max-width: 768px) {
     .formulario {
         flex-direction: column;
         align-items: center;
+    }
+
+    .formulario__boton {
+        margin-left: 199px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .formulario__boton {
+        width: 70%;
+        margin-left: 35px;
     }
 }
 

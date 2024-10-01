@@ -1,22 +1,22 @@
 [
     {
         "id": 1,
-        "nombreServicio": "carrito",
-        "claseIcono":"fa-solid fa-cart-shopping",
+        "nombreServicio": "Carrito",
+        "claseIcono":"img/carritos.jpg",
         "descripcion":"Para un uso adecuado de los carros de mercado, no deben dejarse en parqueaderos ni ascensores, evitar transportar objetos pesados, y siempre devolverlos a su lugar designado. Además, no deben guardarse en los apartamentos.",
         "anuncio": true    
     },
     {
         "id": 2,
-        "nombreServicio": "parqueaderos",
-        "claseIcono":"fa-solid fa-car-on",
+        "nombreServicio": "Parqueaderos",
+        "claseIcono":"img/parqueaderos2.jpg",
         "descripcion":"Está prohibido usar los parqueaderos como depósitos, ya que provoca desorden y aumenta el riesgo de incendios al reducir la visibilidad y la ventilación.",
         "anuncio": true    
     },
     {
         "id": 3,
-        "nombreServicio": "mascotas",
-        "claseIcono":"fa-solid fa-paw ",
+        "nombreServicio": "Mascotas",
+        "claseIcono":"img/mascotas2.png ",
         "descripcion":"La tenencia de animales domésticos se regirá por el Código Nacional de Policía. La falta de higiene por excrementos y ruidos que interrumpan la tranquilidad será sancionada por el Consejo de administración.",
         "anuncio": true    
     }

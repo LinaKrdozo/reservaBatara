@@ -16,7 +16,6 @@
 
 .formulario__imagen {
     width: 100%;
-    /*max-width: 100%;*/
     height: auto;
     border-radius: 10px;
     margin-top: 120px;
@@ -69,16 +68,16 @@
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-/* Estilo para el campo de selección */
+
 .form-select {
     width: 100%;
     padding: 8px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #ffffff; /* Fondo blanco para el select */
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra interna para el select */
-    transition: border-color 0.3s ease; /* Transición suave para el borde */
+    background-color: #ffffff; 
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease; 
 }
 
 .formulario__grupo--apartamento {
@@ -91,35 +90,33 @@
 
 
 .link-login {
-    margin-top: 20px; /* Añadir espacio superior */
-    text-align: center; /* Centrar el texto */
+    margin-top: 20px; 
+    text-align: center;
 }
 
 .link-login a {
-    color: #f9a310; /* Color del enlace */
+    color: #f9a310;
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .link-login a:hover {
-    color: #e08910; /* Color del enlace en hover */
+    color: #e08910;
 }
 
 
 .error-container {
     display: flex;
     align-items: center;
-    color: #9D2A11; /* Color del mensaje de error */
+    color: #9D2A11; 
     margin-top: 5px;
 }
 
-/* Estilos para el ícono de advertencia */
 .error-container i {
-    margin-right: 8px; /* Espacio entre el ícono y el mensaje */
-    color: #9D2A11; /* Color del ícono de advertencia */
-}
+    margin-right: 8px; 
+    color: #9D2A11; 
 
-/* Estilos para el mensaje de error */
+
 .text-danger {
     color: #9D2A11;
 }
@@ -128,34 +125,38 @@
     border: 2px solid #9D2A11;
   }
 
-@media (max-width: 480px) {
-    .formulario__boton {
-        width: 100%;
-    }
-}
 
-/* Media queries para tabletas y celulares */
 @media (max-width: 768px) {
     .formulario {
         flex-direction: column;
         align-items: center;
     }
-
-}
-
-@media (max-width: 1024px) {
-    .formulario {
-        flex-direction: column;
-        align-items: center;
+    .formulario__imagen{
+        display: none;
     }
-
-    .formulario__contenido {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
     .formulario__form {
-        width: 100%;
+        width: 91%;
+        padding-left: 40px;
+        margin-left: 18px;
+    }
+    .formulario__boton{
+        width: 48%;
+        padding-left: 64px;
+        margin-left: 98px;
     }
 }
 
+@media (max-width: 480px) {
+    .formulario__boton {
+        width: 54%;
+        margin-left: 75px;
+    }
+    .formulario__imagen{
+        display: none;
+    }
+    .formulario__form {
+       margin-left: -25px;
+       width: 117%;
+    }
+}
+}

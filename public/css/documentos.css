@@ -61,9 +61,15 @@
 }
 
 @media (max-width: 480px) {
-    .informacion__card {
-        flex-basis: 100%; /* Una columna en pantallas más pequeñas */
+ 
+    .contenido {
+        padding: 15px;
+        width: 80%;
     }
+
+    .icono__descargas{
+        display: none
+     }
 }
 
 /* Media queries para tabletas y celulares */
@@ -71,9 +77,13 @@
     
     .contenido {
         padding: 15px;
+        width: 80%;
     }
 
     .documento a {
         padding: 10px;
     }
+    .icono__descargas{
+        display: none
+     }
 }

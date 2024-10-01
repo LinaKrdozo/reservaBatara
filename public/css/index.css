@@ -9,14 +9,14 @@
     height: auto;
 }
 
-/* Estilos para la sección de Información */
 .informacion {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     margin: 20px auto;
     background-color: #ffffff;
-    width: 63%;
+    width: 90%; 
+    max-width: 1000px; 
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 86px;
@@ -25,61 +25,104 @@
 
 .informacion__card {
     text-align: center;
-    flex: 1 1 250px; /* Flex-grow, flex-shrink, flex-basis */
+    flex: 1 1 250px; 
     margin: 10px;
     padding: 20px;
-    background-color: #ffffff; /* Color de fondo de los elementos */
+    background-color: #ffffff; 
 }
 
 .informacion__card:hover {
-    transform: translateY(-5px); /* Efecto de levantamiento al hacer hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
 }
 
 .informacion__icono {
     font-size: 2rem;
     margin-bottom: 10px;
-    color: #f9a310; /* Color del ícono */
+    color: #f9a310; 
 }
 
 .informacion__numero {
     font-size: 1.5rem;
     margin: 10px 0;
-    color: #000000; /* Color del número */
+    color: #000000; 
 }
 
 .informacion__descripcion {
     font-size: 0.9rem;
-    color: #666666; /* Color de la descripción */
+    color: #666666; 
 }
 
-/* Estilos para la sección de Características */
 .caracteristicas {
     display: flex;
-    justify-content: space-evenly;
-    margin: 27px 113px;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    margin: 39px auto; 
+    width: 92%;
 }
 
 .caracteristicas__item {
     text-align: center;
-    width: calc(37.33% - 82px);
-    margin: 44px;
-    background-color: #ffffff;
-    padding: 54px;
+    margin: 13px;
+    background-color: #ffffff; 
+    padding: 51px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Añadido para el cambio de color */
+    width: 31%;
 }
 
 .caracteristicas__item:hover {
-    transform: translateY(-5px); /* Efecto de levantamiento al hacer hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    background-color: #14213d; 
+    color: #ffffff; 
 }
 
-.caracteristicas__icono {
-    font-size: 2rem;
-    margin-bottom: 10px;
-    color: #f9a310; /* Color del icono */
+.caracteristicas__fondo {
+    background-color: rgba(102, 102, 102, 0.1);
+    width: 100%;
+    padding: 33px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease-in-out; 
+}
+
+.caracteristicas__item:hover .caracteristicas__fondo {
+    background-color: rgba(246, 200, 120, 0.1); 
+}
+
+.caracteristicas__imagenAnuncios {
+     margin-bottom: 10px;
+     width: 76%;
+     height: auto; 
+     border-radius: 8px;
+}
+
+.caracteristicas__titulo {
+    margin: 10px 0;
+    color: #000000; 
+    transition: color 0.3s ease-in-out; 
+}
+
+.caracteristicas__descripcion {
+    font-size: 0.9rem;
+    color: #666666; 
+    line-height: 32px;
+    transition: color 0.3s ease-in-out; 
+}
+
+
+.caracteristicas__item:hover .caracteristicas__titulo,
+.caracteristicas__item:hover .caracteristicas__descripcion {
+    color: #ffffff; 
+}
+
+.caracteristicas__imagenAnuncios {
+     margin-bottom: 10px;
+     width: 76%;
+     height: 50%;
+     border-radius: 8px;
+    
 }
 
 .caracteristicas__titulo {
@@ -90,14 +133,16 @@
 .caracteristicas__descripcion {
     font-size: 0.9rem;
     color: #666666; 
+    line-height: 32px;
 }
+
 
 .juntaAdministradora {
     background-color: #f4f4f4; 
-    padding: 44px 121px;
+    padding: 44px 20px; 
     border-radius: 8px;
     margin: 68px auto;
-    max-width: 59%;
+    max-width: 90%; 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -105,13 +150,13 @@
     text-align: center;
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #333; /* Color del título */
+    color: #333; 
 }
 
 .juntaAdministradora__lista {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    flex-wrap: wrap; 
+    justify-content: space-around; 
 }
 
 .junta__item {
@@ -120,10 +165,9 @@
     margin: 10px;
     padding: 39px;
     text-align: center;
-    flex: 1 1 calc(30% - 20px); /* Tres columnas */
+    flex: 1 1 calc(30% - 20px); 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    width: 61%;
 }
 
 .junta__item:hover {
@@ -157,9 +201,11 @@
     text-align: center;
 }
 
-@media (max-width: 480px) {
+/* Estilos responsivos */
+@media (max-width: 768px) {
     .informacion {
-        width: 100%;
+        width: 80%; 
+        display: flex; 
     }
 
     .informacion__card {
@@ -168,32 +214,32 @@
     }
 
     .caracteristicas {
-        flex-wrap: wrap; 
+        flex-direction: column; 
         margin: 20px 10px; 
     }
 
     .caracteristicas__item {
         width: 100%; 
-        margin: 20px 0; 
+        margin: 10px 0; 
     }
-}
 
-@media (min-width: 481px) and (max-width: 768px) {
-    .informacion__card {
-        flex-basis: calc(50% - 20px); 
-        margin: 10px;
+    .juntaAdministradora {
+        padding: 20px; 
+        max-width: 90%; 
     }
+
     .junta__item {
         flex: 1 1 100%; 
+        max-width: none; 
     }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
     .caracteristicas__item {
-        width: calc(50% - 20px); 
-        
+        width: calc(45% - 20px); 
     }
+
     .junta__item {
-        flex: 1 1 calc(45% - 20px); /* Dos columnas en pantallas pequeñas */
+        flex: 1 1 calc(45% - 20px); 
     }
 }
