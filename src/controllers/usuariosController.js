@@ -4,7 +4,6 @@ const usuariosService = require('../model/service/usuariosService')
 const rolService = require('../model/service/rolService');
 const reservasService = require('../model/service/reservasService');
 
-
 module.exports = {
 
 	//** usuarios clientes */
@@ -244,12 +243,12 @@ module.exports = {
 	
 	// Update - Method to update
 	update: async (req, res) => {
-		try{	
+		try{
+			let reserva = await reservasService.getOneBy(req.params.id);	
 			if(req.file){
 				let usuario = req.body;
 				usuario.foto = 'img/imgUsuarios/' + req.file.filename;
 			}
-
 			await usuariosService.update(req.body,req.params.id);
 			res.redirect('/usuarios/panelAdmin') 
 		} catch (error) {

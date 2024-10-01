@@ -21,7 +21,7 @@
                 
                 <div class="perfil__card--izquierda">
                     <% if (usuario.rol_idRol === 1) { %> 
-                        <img src="/<%= usuario.foto %>" alt="Foto de perfil (Admin)" class="perfil__imagen">
+                        <img src="/img/imgUsuarios/<%= usuario.foto %>" alt="Foto de perfil (Admin)" class="perfil__imagen">
                     <% } else { %> 
                         <img src="/img/imgUsuarios/<%= usuario.foto %>" alt="Foto de perfil" class="perfil__imagen">
                     <% } %>

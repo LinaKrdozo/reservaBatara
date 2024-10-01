@@ -19,11 +19,11 @@
                         <% if (locals.userLogged.rol_idRol == 1) { %>
                             <li>
                                 <a href="/usuarios/perfil" class="encabezado__nav-link foto-perfil">
-                                    <img class="img__perfil" src="/<%= locals.userLogged.foto %>" width="20" height="20" style="border-radius:100%;">
+                                    <img class="img__perfil" src="/img/imgUsuarios/<%= locals.userLogged.foto %>" width="20" height="20" style="border-radius:100%;">
                                     <%= locals.userLogged.nombre_completo %>
                                 </a>
                             </li>
-                        <% } else { %> <!-- Si no es administrador -->
+                        <% } else { %> 
                             <li>
                                 <a href="/usuarios/perfil" class="encabezado__nav-link foto-perfil">
                                     <img class="img__perfil" src="/img/imgUsuarios/<%= locals.userLogged.foto %>" width="20" height="20" style="border-radius:100%;">

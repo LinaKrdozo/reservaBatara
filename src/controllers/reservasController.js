@@ -4,6 +4,7 @@ const reservasService= require("../model/service/reservasService");
 const detalleService = require("../model/service/detalleService")
 const usuariosService = require("../model/service/usuariosService")
 const rolesService = require("../model/service/rolService")
+const { transporter } =  require('../model/db/config/mailer')
 
 module.exports ={
 	/************* METODOS USUARIO **********/
@@ -69,7 +70,10 @@ module.exports ={
 		try {
 			let reserva = await reservasService.getOneBy(req.params.id);
 			let detalleReserva = await detalleService.getOneDetail(req.params.id)
-			res.render('admin/detalleReserva',{ reserva:reserva, detalleReserva : detalleReserva })
+
+			let usuarioId = detalleReserva.usuarios_idUsuarios;
+			let usuario = await usuariosService.getOneBy(usuarioId);
+			res.render('admin/detalleReserva',{ reserva:reserva, detalleReserva : detalleReserva, usuario : usuario })
 		}catch(error){
 			res.send("Ha ocurrido un error inesperado").status(500); 
 		}
@@ -109,15 +113,34 @@ module.exports ={
 	// Update - Method to update
 	update: async function(req, res) {
 		try{
+			let reserva = req.body;
 			if(req.file){
-				let reserva = req.body;
 				reserva.foto_pago = 'img/imgReservas/' + req.file.filename;
-
-				await reservasService.update(req.body,req.params.id);
-			}else{
-				await reservasService.update(req.body,req.params.id);
 			}
+				await reservasService.update(req.body,req.params.id);
 
+				let detalleReserva = await detalleService.getOneDetail(req.params.id); 
+        		let usuarioId = detalleReserva.usuarios_idUsuarios; 
+
+        		let usuario = await usuariosService.getOneBy(usuarioId);
+        		if (!usuario) {
+            		return res.status(404).send("Usuario no encontrado.");
+        		}
+
+        		let destinatario = usuario.correo; 
+
+				try {
+					await transporter.sendMail({
+						from: '"Servicio de notificaciones" <reservabataraprueba@gmail.com>',
+						to: destinatario,
+						subject: "Estado de la reserva ✔",
+						text: `Su reserva para el dia ${reserva.fecha_evento}, ha sido actualizada a: ${reserva.disponibilidad}`,
+					});
+				} catch (sendError) {
+					console.error('Error al enviar el correo:', sendError);
+					return res.status(500).send("Error al enviar el correo de notificación.");
+				}
+			
 			res.redirect('/reservas') 
 
 		}catch(error){
@@ -127,14 +150,40 @@ module.exports ={
 	},
 	// Delete - Delete one booking from DB
 	destroy : async function(req,res){
-		try{
+		try {
+			const reserva = await reservasService.getOneBy(req.params.id);
+			if (!reserva) {
+				return res.status(404).send("Reserva no encontrada.");
+			}
+	
+			const detalleReserva = await detalleService.getOneDetail(req.params.id); 
+			let usuarioId = detalleReserva.usuarios_idUsuarios; 
+			let usuario = await usuariosService.getOneBy(usuarioId);
+			if (!usuario) {
+				return res.status(404).send("Usuario no encontrado.");
+			}
+
+			const destinatarios = [
+				'reservabataraprueba@gmail.com',
+				usuario.correo 
+			];
+
+			await transporter.sendMail({
+				from: '"servicio de notificaciones" <reservabataraprueba@gmail.com>',
+				to: destinatarios, 
+				subject: "Reserva Cancelada ✔",
+				text: `La reserva con fecha ${reserva.fecha_evento} ha sido cancelada por el usuario con el correo: ${req.session.userLogged.correo}.`,
+			});
+			console.log('Correo enviado con éxito.');
+	
 			await reservasService.delete(req.params.id);
-        	const reservas = await reservasService.getAll();
-        	res.json({ success: true, reservas: reservas });
-		} catch(error){
+			const reservas = await reservasService.getAll();
+	
+			res.json({ success: true, reservas: reservas });
+		} catch (error) {
 			console.error(error);  
-        	res.status(500).send("No se pudo eliminar."); 
-		}	
+			res.status(500).send("No se pudo eliminar."); 
+		} 
 	}
 };
 
