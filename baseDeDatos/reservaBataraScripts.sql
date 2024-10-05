@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `reservaBatara`.`reserva` (
   PRIMARY KEY (`idReserva`))
   ENGINE = InnoDB;
 
-INSERT INTO `reservaBatara`.`reserva` (`fecha_reserva`, `fecha_evento` , `tipo_evento`, `disponibilidad`) VALUES
+INSERT INTO `reservaBatara`.`reserva` (`fecha_reserva`, `fecha_evento`,`tipo_evento`, `disponibilidad`) VALUES
 ('2024-10-01', '2024-10-08','otro', 'confirmada'),
 ('2024-10-05', '2024-10-12','otro', 'pendiente'),
 ('2024-10-10', '2024-10-18','educativo', 'cancelada');
@@ -69,12 +69,10 @@ INSERT INTO `reservaBatara`.`usuarios` (`nombre_completo`, `password`,`correo`, 
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `reservaBatara`.`detalle_reserva` (
   `idDetalle_reserva` INT(11) NOT NULL AUTO_INCREMENT,
-  `cantidad_horas` INT(11) NOT NULL,
   `descripcion` VARCHAR(45) NOT NULL,
   `foto_pago` VARCHAR(45),
-  `hora_inicio` VARCHAR(45),
-  `hora_fin` VARCHAR(45),
   `asistentes` INT(11) NOT NULL,
+  `hora_entrega` VARCHAR(45) NOT NULL,
   `usuarios_idUsuarios` INT(11) NOT NULL,
   `reserva_idReserva` INT(11) NOT NULL,
   PRIMARY KEY (`idDetalle_reserva`, `usuarios_idUsuarios`, `reserva_idReserva`),
@@ -92,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `reservaBatara`.`detalle_reserva` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `reservaBatara`.`detalle_reserva` (`cantidad_horas`, `descripcion`,`foto_pago`, `hora_inicio`, `hora_fin`, `asistentes`, `usuarios_idUsuarios`, `reserva_idReserva`) VALUES
-(3, 'Reunión de planificación' ,'pago_juan.jpg','8:00AM', '11:00AM',20 ,1, 1),
-(2, 'Fiesta de cumpleaños' ,'pago_maria.jpg', '2:00PM', '4:00PM', 10,2, 2),
-(4, 'Presentación de proyecto' ,'pago_carlos.jpg','9:00Am', '1:00PM',8 ,3, 3);
+INSERT INTO `reservaBatara`.`detalle_reserva` ( `descripcion`,`foto_pago`, `asistentes`,`hora_entrega`, `usuarios_idUsuarios`, `reserva_idReserva`) VALUES
+('Reunión de planificación' ,'pago_juan.jpg',20, '7:00pm' ,1, 1),
+('Fiesta de cumpleaños' ,'pago_maria.jpg', 10,'4:00pm',2, 2),
+('Presentación de proyecto' ,'pago_carlos.jpg',8, '6:00pm' ,3, 3);

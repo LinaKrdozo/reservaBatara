@@ -53,87 +53,64 @@
     color: #666666; 
 }
 
-.caracteristicas {
+.caracteristicas__anunciosTotales{
     display: flex;
-    flex-wrap: wrap; 
-    justify-content: space-between;
-    margin: 39px auto; 
-    width: 92%;
+    justify-content: center;
+    padding-top: 58px;
+}
+.caracteristicas__anuncio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    overflow: hidden;
+    width: 107%; 
 }
 
-.caracteristicas__item {
+.caracteristicas__imagenAnuncios {
+    background-size: cover;
+    background-position: center;
+    width: 418px; /* Ancho fijo para contenedor cuadrado */
+    height: 377px; /* Altura fija para contenedor cuadrado */
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.caracteristicas__anuncio:hover .caracteristicas__imagenAnuncios {
+    transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+}
+
+.caracteristicas__texto {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
+    padding: 20px;
     text-align: center;
-    margin: 13px;
-    background-color: #ffffff; 
-    padding: 51px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Añadido para el cambio de color */
-    width: 31%;
+    transition: opacity 0.3s ease;
+    width: 67%;
 }
 
-.caracteristicas__item:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
-    background-color: #14213d; 
-    color: #ffffff; 
-}
-
-.caracteristicas__fondo {
-    background-color: rgba(102, 102, 102, 0.1);
-    width: 100%;
-    padding: 33px;
-    border-radius: 10px;
-    transition: background-color 0.3s ease-in-out; 
-}
-
-.caracteristicas__item:hover .caracteristicas__fondo {
-    background-color: rgba(246, 200, 120, 0.1); 
-}
-
-.caracteristicas__imagenAnuncios {
-     margin-bottom: 10px;
-     width: 76%;
-     height: auto; 
-     border-radius: 8px;
+.caracteristicas__anuncio:hover .caracteristicas__texto {
+    opacity: 0.9; /* Efecto de opacidad al pasar el ratón */
 }
 
 .caracteristicas__titulo {
-    margin: 10px 0;
-    color: #000000; 
-    transition: color 0.3s ease-in-out; 
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0;
 }
 
 .caracteristicas__descripcion {
-    font-size: 0.9rem;
-    color: #666666; 
-    line-height: 32px;
-    transition: color 0.3s ease-in-out; 
-}
-
-
-.caracteristicas__item:hover .caracteristicas__titulo,
-.caracteristicas__item:hover .caracteristicas__descripcion {
-    color: #ffffff; 
-}
-
-.caracteristicas__imagenAnuncios {
-     margin-bottom: 10px;
-     width: 76%;
-     height: 50%;
-     border-radius: 8px;
-    
-}
-
-.caracteristicas__titulo {
-    margin: 10px 0;
-    color: #000000; 
-}
-
-.caracteristicas__descripcion {
-    font-size: 0.9rem;
-    color: #666666; 
-    line-height: 32px;
+    font-size: 1rem;
+    color: #666;
+    margin-top: 10px;
 }
 
 

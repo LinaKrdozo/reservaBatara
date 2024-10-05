@@ -1,5 +1,10 @@
-<article class="caracteristicas__item">
-    <img src="<%= anuncio.claseIcono %>" class="caracteristicas__imagenAnuncios"></i>
-    <h2 class="caracteristicas__titulo"><strong><%= anuncio.nombreServicio %></strong></h2>
-    <p class="caracteristicas__descripcion"><%= anuncio.descripcion %></p>
+<div class="contenedor_caracteristicas">
+<article class="caracteristicas__anuncio">
+    <div class="caracteristicas__imagenAnuncios" style="background-image: url('<%= anuncio.claseIcono %>');">
+        <div class="caracteristicas__texto">
+            <h2 class="caracteristicas__titulo"><strong><%= anuncio.nombreServicio %></strong></h2>
+            <p class="caracteristicas__descripcion"><%= anuncio.descripcion %></p>
+        </div>
+    </div>
 </article>
+</div>

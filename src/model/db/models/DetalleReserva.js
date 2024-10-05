@@ -8,21 +8,13 @@ module.exports = (sequelize, DataTypes)=>{
             autoIncrement: true,
             primaryKey: true
         },
-        cantidad_horas: {
-            type: DataTypes.INTEGER(11),
-            allowNull: false,
-        },
         descripcion: {
             type: DataTypes.STRING(45),
             allowNull: false,
         },
         foto_pago: DataTypes.STRING(45),
             
-        hora_inicio: {
-            type: DataTypes.STRING(45),
-            allowNull: false,
-        },
-        hora_fin: {
+        hora_entrega: {
             type: DataTypes.STRING(45),
             allowNull: false,
         },

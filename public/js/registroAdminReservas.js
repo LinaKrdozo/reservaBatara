@@ -1,13 +1,9 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const tipoEventoSelect = document.getElementById('tipo_evento');
     const disponibilidadSelect = document.getElementById('disponibilidad');
-    const fotoPago = document.getElementById('foto_pago');
     const fechaReservaInput = document.getElementById('fecha_reserva');
     const fechaEventoInput = document.getElementById('fecha_evento');
     const asistentesInput = document.getElementById('asistentes');
-    const horaInicio = document.getElementById('hora_inicio');
-    const horaFin = document.getElementById('hora_fin');
-    const cantidadHoras = document.getElementById('cantidad_horas');
 
 
      async function obtenerFechasReservadas() {
@@ -66,56 +62,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     }
 
-    function calcularHoras() {
-        const inicio = horaInicio.value;
-        const fin = horaFin.value;
-
-        if (inicio && fin) {
-            const [inicioHoras, inicioMinutos] = inicio.split(':').map(Number);
-            const [finHoras, finMinutos] = fin.split(':').map(Number);
-
-            const horaInicioDate = new Date(2000, 0, 1, inicioHoras, inicioMinutos);
-            const horaFinDate = new Date(2000, 0, 1, finHoras, finMinutos);
-
-            const diferenciaHoras = Math.max(0, (horaFinDate - horaInicioDate) / (1000 * 60 * 60));
-            cantidadHoras.value = diferenciaHoras;
-        } else {
-            cantidadHoras.value = '';
-        }
-    }
-
-    function actualizarVisibilidadFotoPagoTipoEvento() {
-        const valorSeleccionado = tipoEventoSelect.value;
-
-        if (valorSeleccionado === 'educativo' || valorSeleccionado === 'laboral' || valorSeleccionado === 'didactico') {
-            fotoPago.style.display = 'none';
-        } else if (valorSeleccionado === 'otro') {
-            fotoPago.style.display = 'block';
-        } else {
-            fotoPago.style.display = 'none'; 
-        }
-    }
-
-    function manejarCambioDisponibilidad() {
-        const valorSeleccionado = disponibilidadSelect.value;
-
-        if (valorSeleccionado === 'confirmada') {
-            fotoPago.classList.remove('oculto'); 
-        } else {
-            fotoPago.classList.add('oculto'); 
-        }
-    }
-
     function actualizarMaximoAsistentes() {
         const tipoEvento = tipoEventoSelect.value;
-        let maxAsistentes;
-
-        if (tipoEvento === 'educativo' || tipoEvento === 'laboral' || tipoEvento === 'didactico') {
-            maxAsistentes = 8;
-        } else {
-            maxAsistentes = 50;
-        }
-
+        let maxAsistentes = 50; 
+    
         asistentesInput.setAttribute('max', maxAsistentes);
         asistentesInput.setAttribute('placeholder', `1-${maxAsistentes}`);
     }
@@ -146,17 +96,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 
     tipoEventoSelect.addEventListener('change', () => {
-        actualizarVisibilidadFotoPagoTipoEvento();
         actualizarMaximoAsistentes();
     });
-    disponibilidadSelect.addEventListener('change', manejarCambioDisponibilidad);
-    horaInicio.addEventListener('change', calcularHoras);
-    horaFin.addEventListener('change', calcularHoras);
     fechaReservaInput.addEventListener('change', actualizarFechaEvento);
 
     establecerFechaMinimaReserva();
     bloquearFechas();
-    actualizarVisibilidadFotoPagoTipoEvento();
-    manejarCambioDisponibilidad();
+   /* manejarCambioDisponibilidad();*/
     actualizarMaximoAsistentes();
 });

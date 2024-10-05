@@ -72,6 +72,7 @@ body {
 .foto-perfil {
     display: flex;
     align-items: center;
+    margin-top: -5px;
 }
 
 .encabezado__nav-link:hover {

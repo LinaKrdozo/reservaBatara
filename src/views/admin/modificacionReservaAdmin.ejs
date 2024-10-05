@@ -48,49 +48,24 @@
                     </label>
                 </div>
                 <div class="formulario__grupo">
-                    <label for="hora_inicio" class="formulario__label">Hora de Inicio:</label>
-                    <select id="hora_inicio" name="hora_inicio" class="formulario__input" required>
-                        <option value="08:00" <%= detalleReserva.hora_inicio === '08:00' ? 'selected' : '' %>>08:00 AM</option>
-                        <option value="09:00" <%= detalleReserva.hora_inicio === '09:00' ? 'selected' : '' %>>09:00 AM</option>
-                        <option value="10:00" <%= detalleReserva.hora_inicio === '10:00' ? 'selected' : '' %>>10:00 AM</option>
-                        <option value="11:00" <%= detalleReserva.hora_inicio === '11:00' ? 'selected' : '' %>>11:00 AM</option>
-                        <option value="12:00" <%= detalleReserva.hora_inicio === '12:00' ? 'selected' : '' %>>12:00 PM</option>
-                        <option value="13:00" <%= detalleReserva.hora_inicio === '13:00' ? 'selected' : '' %>>01:00 PM</option>
-                        <option value="14:00" <%= detalleReserva.hora_inicio === '14:00' ? 'selected' : '' %>>02:00 PM</option>
-                        <option value="15:00" <%= detalleReserva.hora_inicio === '15:00' ? 'selected' : '' %>>03:00 PM</option>
-                        <option value="16:00" <%= detalleReserva.hora_inicio === '16:00' ? 'selected' : '' %>>04:00 PM</option>
-                        <option value="17:00" <%= detalleReserva.hora_inicio === '17:00' ? 'selected' : '' %>>05:00 PM</option>
-                        <option value="18:00" <%= detalleReserva.hora_inicio === '18:00' ? 'selected' : '' %>>06:00 PM</option>
-                        <option value="19:00" <%= detalleReserva.hora_inicio === '19:00' ? 'selected' : '' %>>07:00 PM</option>
-                        <option value="20:00" <%= detalleReserva.hora_inicio === '20:00' ? 'selected' : '' %>>08:00 PM</option>
-                        <option value="21:00" <%= detalleReserva.hora_inicio === '21:00' ? 'selected' : '' %>>09:00 PM</option>
-                        <option value="22:00" <%= detalleReserva.hora_inicio === '22:00' ? 'selected' : '' %>>10:00 PM</option>
+                    <label for="hora_entrega" class="formulario__label">Hora de Entrega del salón:</label>
+                    <select id="hora_entrega" name="hora_entrega" class="formulario__input" required>
+                        <option value="08:00" <%= detalleReserva.hora_entrega === '08:00' ? 'selected' : '' %>>08:00 AM</option>
+                        <option value="09:00" <%= detalleReserva.hora_entrega === '09:00' ? 'selected' : '' %>>09:00 AM</option>
+                        <option value="10:00" <%= detalleReserva.hora_entrega === '10:00' ? 'selected' : '' %>>10:00 AM</option>
+                        <option value="11:00" <%= detalleReserva.hora_entrega === '11:00' ? 'selected' : '' %>>11:00 AM</option>
+                        <option value="12:00" <%= detalleReserva.hora_entrega === '12:00' ? 'selected' : '' %>>12:00 PM</option>
+                        <option value="13:00" <%= detalleReserva.hora_entrega === '13:00' ? 'selected' : '' %>>01:00 PM</option>
+                        <option value="14:00" <%= detalleReserva.hora_entrega === '14:00' ? 'selected' : '' %>>02:00 PM</option>
+                        <option value="15:00" <%= detalleReserva.hora_entrega === '15:00' ? 'selected' : '' %>>03:00 PM</option>
+                        <option value="16:00" <%= detalleReserva.hora_entrega === '16:00' ? 'selected' : '' %>>04:00 PM</option>
+                        <option value="17:00" <%= detalleReserva.hora_entrega === '17:00' ? 'selected' : '' %>>05:00 PM</option>
+                        <option value="18:00" <%= detalleReserva.hora_entrega === '18:00' ? 'selected' : '' %>>06:00 PM</option>
+                        <option value="19:00" <%= detalleReserva.hora_entrega === '19:00' ? 'selected' : '' %>>07:00 PM</option>
+                        <option value="20:00" <%= detalleReserva.hora_entrega === '20:00' ? 'selected' : '' %>>08:00 PM</option>
+                        <option value="21:00" <%= detalleReserva.hora_entrega === '21:00' ? 'selected' : '' %>>09:00 PM</option>
+                        <option value="22:00" <%= detalleReserva.hora_entrega === '22:00' ? 'selected' : '' %>>10:00 PM</option>
                     </select>
-                </div>
-                <div class="formulario__grupo">
-                    <label for="hora_fin" class="formulario__label">Hora de Fin:</label>
-                    <select id="hora_fin" name="hora_fin" class="formulario__input" required>
-                        <option value="08:00" <%= detalleReserva.hora_fin === '08:00' ? 'selected' : '' %>>08:00 AM</option>
-                        <option value="09:00" <%= detalleReserva.hora_fin === '09:00' ? 'selected' : '' %>>09:00 AM</option>
-                        <option value="10:00" <%= detalleReserva.hora_fin === '10:00' ? 'selected' : '' %>>10:00 AM</option>
-                        <option value="11:00" <%= detalleReserva.hora_fin === '11:00' ? 'selected' : '' %>>11:00 AM</option>
-                        <option value="12:00" <%= detalleReserva.hora_fin === '12:00' ? 'selected' : '' %>>12:00 PM</option>
-                        <option value="13:00" <%= detalleReserva.hora_fin === '13:00' ? 'selected' : '' %>>01:00 PM</option>
-                        <option value="14:00" <%= detalleReserva.hora_fin === '14:00' ? 'selected' : '' %>>02:00 PM</option>
-                        <option value="15:00" <%= detalleReserva.hora_fin === '15:00' ? 'selected' : '' %>>03:00 PM</option>
-                        <option value="16:00" <%= detalleReserva.hora_fin === '16:00' ? 'selected' : '' %>>04:00 PM</option>
-                        <option value="17:00" <%= detalleReserva.hora_fin === '17:00' ? 'selected' : '' %>>05:00 PM</option>
-                        <option value="18:00" <%= detalleReserva.hora_fin === '18:00' ? 'selected' : '' %>>06:00 PM</option>
-                        <option value="19:00" <%= detalleReserva.hora_fin === '19:00' ? 'selected' : '' %>>07:00 PM</option>
-                        <option value="20:00" <%= detalleReserva.hora_fin === '20:00' ? 'selected' : '' %>>08:00 PM</option>
-                        <option value="21:00" <%= detalleReserva.hora_fin === '21:00' ? 'selected' : '' %>>09:00 PM</option>
-                        <option value="22:00" <%= detalleReserva.hora_fin === '22:00' ? 'selected' : '' %>>10:00 PM</option>
-                    </select>
-                </div>
-                <div class="formulario__grupo">
-                    <label for="cantidad_horas" class="formulario__label">Cantidad de horas:
-                    <input type="number" id="cantidad_horas" name="cantidad_horas" class="formulario__input" value="<%= detalleReserva.cantidad_horas%>" placeholder="1" required>
-                    </label>
                 </div>
                 <div class="formulario__grupo">
                     <label for="descripcion" class="formulario__label">Descripcion:
@@ -106,17 +81,6 @@
                     </select>
                 </div>
                 
-                <div class="formulario__grupo" id="fotoPago">
-                    <label for="foto_pago" class="formulario__label">Foto Pago:</label>
-                    <% if (reserva.disponibilidad === 'confirmada' ) { %>
-                        <img src="/<%= detalleReserva.foto_pago %>" alt="Foto del Pago" class="formulario__imagen-previa">
-                    <% } %>
-                    <% if (reserva.disponibilidad === 'pendiente' || reserva.disponibilidad === 'cancelada') { %>
-                      <img src="/img/imgNoDisp.png" alt="Foto del Pago" class="formulario__imagen-previa">
-                  <% } %>
-                    <input type="file" id="foto_pago" name="foto_pago" class="formulario__input">
-
-                </div>
                 <button type="submit" class="formulario__boton">Modificar Reserva</button>
             </form>
         </article>

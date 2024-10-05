@@ -21,16 +21,17 @@
         "id": 3,
         "nombreServicio": "parque infantil",
         "claseIcono":"fa-solid fa-futbol",
-        "descripcion":"Los juegos infantiles son solo para niños menores de 12 años, deben estar acompañados por un adulto. El conjunto no se hace responsable de accidentes y el personal puede retirar a niños sin supervisión."  
+        "descripcion":"Los juegos infantiles son solo para niños menores de 12 años",
+        "descripcion2":"deben estar acompañados por un adulto.",
+        "descripcion3":" El conjunto no se hace responsable de accidentes y el personal puede retirar a niños que esten sin supervisión."
     },
     {
         "id": 4,
         "nombreServicio": "salon social",
         "claseIcono":"fa-solid fa-users",
-        "descripcion":"Salón social : ",
-        "descripcion2":"En servicio",   
-        "descripcion3":"Reservas oficina de administración",
-        "descripcion4": "Tambien puedes realizar tu reserva registrandote en nuestra pagina web"   
+        "descripcion":"Recuerda el costo del salon social será : ",
+        "descripcion2":"$50.000 mas el costo de deposito, que es de: $100.000",   
+        "descripcion3":"Puedes realizar tu reserva registrandote en nuestra pagina web o en la oficina de administración"
     }
 
 ]

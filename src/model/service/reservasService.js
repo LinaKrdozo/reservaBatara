@@ -121,11 +121,9 @@ function Reserva({fecha_reserva, fecha_evento, tipo_evento, disponibilidad }){
     this.disponibilidad = disponibilidad;
 }
 
-function DetalleReserva({ asistentes, descripcion, hora_inicio, hora_fin, cantidad_horas, foto_pago }){
+function DetalleReserva({ asistentes, descripcion, hora_entrega, foto_pago }){
     this.asistentes = asistentes;
     this.descripcion = descripcion;
-    this.hora_inicio = hora_inicio;
-    this.hora_fin = hora_fin;
-    this.cantidad_horas = cantidad_horas;
+    this.hora_entrega = hora_entrega;
     this.foto_pago = foto_pago;
 }

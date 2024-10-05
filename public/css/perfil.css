@@ -3,7 +3,7 @@
 .principal__section.section--perfil {
     background-color: #e5e5e5; 
     padding: 17px 0;
-    padding-bottom: 117px;
+    padding-bottom: 181px;
 }
 
 .contenedor--perfil {
@@ -83,9 +83,9 @@
     flex-direction: column;
     justify-content: space-between; 
     position: relative;
-    margin-top: 20px; 
-    margin-bottom: 236px; 
-    top: 300px;
+    margin-top: 119px; 
+    margin-bottom: 165px; 
+    top: 302px;
 }
 
 .tabla__scroll {
@@ -164,6 +164,15 @@
     font-size: 1.5rem;
     color: #14213d; 
     margin-bottom: 10px;
+}
+
+.card__reserva .regla {
+    font-size: 1rem;
+    color: #666; 
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+   /* text-decoration: underline;*/
 }
 
 .card__reserva .descripcion {
